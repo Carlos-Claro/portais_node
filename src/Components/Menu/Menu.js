@@ -1,66 +1,61 @@
 import React, {Component} from 'react';
 import LinkWrapper from '../../uteis/LinkWrapper';
+import PreLoader from '../PreLoader/PreLoader'
 import Img from 'react-image';
 
 class MenuItens extends Component {
   render(){
-    console.log(this.props.itens);
+    console.log(this.props.menu);
+    let itens = this.props.menu.map((item) => {
+      console.log(item)
+        return (
+            <li>
+              <LinkWrapper key={item.id} to={`imoveis-${item.link}-${this.props.cidadeLink}`} className="dropdown-trigger black-text text-darken-2" data-target={`dropdown-${item.link}`}>{item.titulo} <i className="material-icons right black-text text-darken-2"></i></LinkWrapper>
+              <ul id={`dropdown-${item.link}`} className="dropdown-content">
+                {
+                    item.itens.map((sub) => {
+                        return(
+                            <li>
+                              <LinkWrapper to={`${item.link}-${sub.link}-${this.props.cidadeLink}`} className="text-darken-2">{sub.titulo}</LinkWrapper>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </li>
+                )
+              })
 
-    return '';
+    return itens;
+    // return '';
   }
 }
 
-  // let itens = props.itens.map((item) => {
-  //   return (
-  //     <li>
-  //       <LinkWrapper key={item.id} to={item.link} className="dropdown-trigger" data-target={`dropdown-${item.link}`}>{item.titulo}</LinkWrapper>
-  //       <ul id={`dropdown-${item.link}`} className="dropdown-content">
-  //         {
-  //           item.itens.map((sub) => {
-  //             return(
-  //               <li>
-  //                 <LinkWrapper to={`${item.link}-${sub.link}`}>{sub.titulo}</LinkWrapper>
-  //               </li>
-  //             )
-  //           })
-  //         }
-  //       </ul>
-  //     </li>
-  //   )
-  // })
 
 
 class Menu extends Component {
 
+    constructor(props){
+      super(props);
+    }
 
     render(){
       return(
         <header>
 
-          <nav className="blue lighten-5">
-            <Img loader={
-                <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-blue-only">
-                      <div class="circle-clipper left">
-                        <div class="circle"></div>
-                      </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                  </div>
-                </div>
-              </div>
-                } className="logo" src={`https://admin.powempresas.com/portais/logos/${this.props.cidade.topo}`}/>
-        <div className="nav-wrapper">
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <nav className="white black-text text-darken-2">
+          <div className="nav-wrapper">
+
+
+            <LinkWrapper to={`/imoveis-${this.props.cidadeLink}`} className="brand-logo">
+              <Img loader={
+                <PreLoader />
+              } className="logo" src={`https://admin.powempresas.com/portais/logos/${this.props.logo}`}/>
+            </LinkWrapper>
+          <ul id="nav-mobile" className="right hide-on-med-and-down text-darken-2">
+            <MenuItens menu={this.props.menu} cidadeLink={this.props.cidadeLink}/>
             <li>
-              <LinkWrapper to="#" className="dropdown-trigger" data-target="dropdown-imoveis">Imóveis</LinkWrapper>
-              <ul id="dropdown-imoveis" className="dropdown-content">
-                <MenuItens itens={this.props.cidade.menu}/>
-              </ul>
-            </li>
-            <li>
-              <LinkWrapper to="#">Sobre</LinkWrapper>
+              <LinkWrapper to="#" className="black-text text-darken-2">Sobre</LinkWrapper>
             </li>
           </ul>
         </div>

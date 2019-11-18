@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = props => {
+  console.log(props.cidade);
   return(
     <footer>
-      <h2>Rodapé</h2>
+      <p>
+        {props.cidade.sobre}
+      </p>
     </footer>
   )
 }

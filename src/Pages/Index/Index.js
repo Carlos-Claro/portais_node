@@ -4,14 +4,14 @@ import urlParse from '../../uteis/urlParse';
 import './Index.css';
 
 
-import Menu from '../../Components/Menu/Menu';
+import Header from '../../Components/Header/Header';
 import Filtro from '../../Components/Filtro/Filtro';
 import Footer from '../../Components/Footer/Footer';
 import Alert from '../../uteis/Alert';
 
 import ApiService from '../../uteis/ApiService'
 
-import 'materialize-css/dist/css/materialize.min.css';;
+import 'materialize-css/dist/css/materialize.min.css';
 
 
 export default class Index extends Component {
@@ -41,7 +41,7 @@ export default class Index extends Component {
     return (
       <Fragment>
         <div className="container">
-          <Menu logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link}/>
+          <Header logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link} cidadeNome={this.state.cidade.nome}/>
           <Filtro bairros={this.state.cidade.bairros} tipos={this.state.cidade.menu}/>
           <Footer cidade={this.state.cidade}/>
         </div>

@@ -2,13 +2,7 @@ import React, {Component} from 'react';
 import LinkWrapper from '../../uteis/LinkWrapper';
 import PreLoader from '../PreLoader/PreLoader'
 import Img from 'react-image';
-import Button from '@material-ui/core/Button';
-import MenuUi from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+
 
 class MenuItens extends Component {
   render(){
@@ -47,21 +41,7 @@ class Menu extends Component {
     render(){
       return(
         <header>
-          <MenuUi
-            id="menu"
-
-            >
-            <MenuItem >SobreAA</MenuItem>
-          </MenuUi>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton edge="start" className="" color="inherit" aria-label="menu">
-                <MenuIcon />
-              </IconButton>
-              <Button color="inherit">Login</Button>
-            </Toolbar>
-          </AppBar>
-
+          
           <nav className="white black-text text-darken-2">
             <div className="nav-wrapper">
               <LinkWrapper to={`/imoveis-${this.props.cidadeLink}`} className="brand-logo">

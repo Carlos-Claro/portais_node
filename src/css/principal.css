@@ -1,0 +1,17 @@
+.principal-enter {
+    opacity: 0.01;
+}
+
+.principal-enter.principal-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.principal-leave {
+    opacity: 1;
+}
+
+.principal-leave.principal-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}

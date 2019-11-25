@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const ApiService = {
   ListaImoveis: filtro => {
-    return axios.get('http://localhost:5000/imoveismongo', filtro)
+    console.log(filtro);
+    return axios.get('http://localhost:5000/imoveismongo', {params:filtro})
     .then(res => ApiService.TrataErros(res))
     .then(res => res.data);
   },

@@ -1,7 +1,6 @@
 import React, {Component,Fragment} from 'react';
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-import { Select } from 'react-materialize';
 import Pubsub from 'pubsub-js';
 
 export default class Filtro extends Component {
@@ -11,9 +10,9 @@ export default class Filtro extends Component {
     this.state = {
       quartos:this.props.filtro.quartos,
       vagas:this.props.filtro.vagas,
-      tipos:this.props.filtro.tipos,
+      tipos:this.props.filtro.tipos_link,
       tipo_negocio:this.props.filtro.tipo_negocio,
-      bairros:this.props.filtro.bairros,
+      bairros:this.props.filtro.bairros_link,
     };
   }
 

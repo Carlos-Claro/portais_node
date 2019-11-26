@@ -10,15 +10,24 @@ export default class Filtro extends Component {
     this.state = {
       quartos:this.props.filtro.quartos,
       vagas:this.props.filtro.vagas,
-      tipos:this.props.filtro.tipos_link,
+      tipos:this.props.filtro.tipos,
       tipo_negocio:this.props.filtro.tipo_negocio,
-      bairros:this.props.filtro.bairros_link,
+      bairros:this.props.filtro.bairros,
     };
   }
 
   componentDidUpdate(nextProps, nextState){
+    if(JSON.stringify(this.props.filtro) !== JSON.stringify(nextProps.filtro)) {
+      this.setState({
+        quartos:nextProps.filtro.quartos,
+        vagas:nextProps.filtro.vagas,
+        tipos:nextProps.filtro.tipos,
+        tipo_negocio:nextProps.filtro.tipo_negocio,
+        bairros:nextProps.filtro.bairros,
+
+      })
+    }
     Pubsub.subscribe('atualiza-filtro',(topico, info) => {
-      console.log(topico,info);
       switch(info.filtroTipo){
         case 'bairros':
           this.setState({bairros:info.selecionados})

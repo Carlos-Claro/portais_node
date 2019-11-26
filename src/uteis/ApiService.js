@@ -1,20 +1,27 @@
-import axios from 'axios';
 
 const ApiService = {
   ListaImoveis: filtro => {
+
+    const requestInfo = {
+      method:'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    };
     console.log(filtro);
-    return axios.get('http://localhost:5000/imoveismongo', {params:filtro})
+    return fetch(`http://localhost:5000/imoveismongo?${filtro}` , requestInfo)
     .then(res => ApiService.TrataErros(res))
-    .then(res => res.data);
+    .then(data => data.json());
   },
   GetCidade: host => {
-    return axios.get('http://localhost:5000/get_cidade/', {params:{'dominio':host}})
-    .then(res => ApiService.TrataErros(res))
-    .then(res => res.data);
+    return fetch(`http://localhost:5000/get_cidade/?dominio=${host}`)
+    .then(res => ApiService.TrataErros(res) )
+    .then(data => data.json());
   },
   TrataErros: res => {
-    if ( res.status !== 200 ){
-      throw Error(res.statusText);
+    if ( ! res.ok ){
+      console.log('ent');
+      throw new Error('erro fetch');
     }
     return res;
   }

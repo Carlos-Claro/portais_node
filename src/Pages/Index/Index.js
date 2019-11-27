@@ -17,7 +17,6 @@ import FiltroUtil from '../../uteis/FiltroUtil';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import '../../css/principal.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Index extends Component {
 
@@ -28,39 +27,41 @@ export default class Index extends Component {
                     menu:[],
                     bairros:{itens:[],qtde:0},
                     filtro:{
-                      quartos:[4],
-                      vagas:[2,3],
-                      tipos:["apartamento","casa"],
+                      quartos:[],
+                      vagas:[],
+                      tipos:[],
                       tipo_negocio:'venda',
-                      bairros:['abranches','uberaba'],
-                      cidade:'curitiba_pr'
+                      bairros:[],
+                      cidade:''
                     },
                     imoveis:{itens:[],qtde:0},
                     url:{},
-                    tipos: ImoveisTipos()
+                    tipos: ImoveisTipos(),
+                    titulo:'Imóveis ',
+                    baseUrl:''
                   };
   }
 
 
   componentDidMount(){
     var url = urlParse(this.props.location);
-    this.setState({url:url});
-
+    this.setState({url:url, baseUrl:this.props.location.pathname+this.props.location.search});
   }
 
-  componentDidUpdate(nextProps, nextState){
-    if(JSON.stringify(this.state.url) !== JSON.stringify(nextState.url)) {
+  componentDidUpdate(prevProps, prevState){
+    if(JSON.stringify(this.state.url) !== JSON.stringify(prevState.url)) {
       this.getCidade(this.state.url.hostname);
     }
-    if(JSON.stringify(this.state.bairros) !== JSON.stringify(nextState.bairros)) {
+    if( JSON.stringify(this.state.cidade) !== JSON.stringify(prevState.cidade) ) {
       this.getFiltroInicial();
     }
-    if(JSON.stringify(this.state.filtro) !== JSON.stringify(nextState.filtro)) {
+    if(JSON.stringify(this.state.filtro) !== JSON.stringify(prevState.filtro)) {
       this.getImoveis();
+      this.getTitulo();
     }
     Pubsub.subscribe('set-filtro',(topico, valores) => {
       if(JSON.stringify(this.state.filtro) !== JSON.stringify(valores)) {
-        this.setState({filtro:valores})
+        this.setState({filtro:valores});
       }
     })
   }
@@ -73,7 +74,7 @@ export default class Index extends Component {
   getImoveis(){
     ApiService.ListaImoveis(FiltroUtil(false,this.state.filtro))
     .then(res => {
-      this.setState({imoveis:res});
+      this.setState({imoveis:res.itens});
     })
     .catch(error => {
       Alert.exibeMensagem('error','Problemas ao retorno imoveis');
@@ -81,12 +82,75 @@ export default class Index extends Component {
 
   }
 
+  getTitulo() {
+    let retorno = 'Imóveis ';
+    let url = 'imoveis-';
+    if ( this.state.filtro.tipos.length > 0 ){
+      let contadorTipo = 0;
+      retorno = "";
+      url = "";
+      this.state.filtro.tipos.map(item => {
+        retorno += contadorTipo > 0 ? ", " : "";
+        url += contadorTipo > 0 ? "+" : "";
+        const tipo = ImoveisTipos(item);
+        retorno += tipo[0].plural;
+        url += tipo[0].link;
+        contadorTipo++;
+        return false;
+      });
+      retorno += " ";
+      url += "-";
+    }
+    if ( this.state.filtro.tipo_negocio !== ""){
+      this.state.filtro.tipo_negocio.map(item => {
+        if ( item === "venda" ){
+          retorno += "à venda ";
+        }else if (item === "locacao" ) {
+          retorno += "para alugar ";
+        }else if (item === "locacao dia" ) {
+          retorno += "para temporada ";
+        }
+        url += item;
+        url += "-";
+        return false;
+      });
+    }
+    let bairroUrl = '';
+    if ( this.state.filtro.bairros.length > 0 ){
+      let contadorBairro = 0;
+      retorno += "no ";
+      this.state.filtro.bairros.map(item => {
+        retorno += contadorBairro > 0 ? ", " : "";
+        const bairro = this.state.bairros.itens.filter(valor => valor.link === item);
+        retorno += bairro[0].nome.toLowerCase();
+        retorno += " "
+        contadorBairro++;
+        return false;
+      });
+      bairroUrl = "-";
+      bairroUrl += this.state.filtro.bairros.join('+');
+
+    }
+    if ( this.state.filtro.cidade !== "" ){
+      retorno += "em ";
+      retorno += this.state.cidade.nome;
+      retorno += " - ";
+      retorno += this.state.cidade.uf;
+      url += this.state.filtro.cidade;
+    }
+    let retornoUrl = "/" + url + bairroUrl;
+    this.props.history.push(retornoUrl);
+    this.setState({titulo:retorno,baseUrl:retornoUrl});
+  }
+
+
+
   getCidade(host){
     ApiService.GetCidade(host)
       .then(res => {
         let filtro = this.state.filtro;
         filtro.cidade = res.link
-        this.setState({cidade:res, menu:res.menu, bairros:res.bairros, filtro:filtro});
+        this.setState({cidade:res, menu:res.menu, bairros:res.bairros});
       })
       .catch(error => {
         Alert.exibeMensagem('error','Não foi possivel conectar ao banco de dados, tentaremos novamente em 5s');
@@ -99,12 +163,8 @@ export default class Index extends Component {
         <div className="container">
         <Menu logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link} cidadeNome={this.state.cidade.nome}/>
         <Filtro bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
-        <ReactCSSTransitionGroup
-          transitionName="timeline"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-          <Imoveis {...this.state.imoveis} />
-        </ReactCSSTransitionGroup>
+        <h1>{this.state.titulo}</h1>
+        <Imoveis {...this.state.imoveis} />
         <Footer cidade={this.state.cidade}/>
         </div>
       </Fragment>

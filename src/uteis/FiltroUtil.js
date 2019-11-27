@@ -6,15 +6,19 @@ let itens = {
   bairros:[],
   quartos:[],
   vagas:[],
-  cidade:[]
+  cidade:[],
+  area:[],
+  preco:[],
 }
 const equivalentes = {
   tipo_negocio:'tipo_negocio',
-  tipos:'tipos_link',
+  tipos:'imoveis_tipos_link',
   bairros:'bairros_link',
   quartos:'quartos',
-  vagas:'vagas',
-  cidade:'cidade_link'
+  vagas:'garagens',
+  cidade:'cidades_link',
+  area:'area',
+  preco:'valor',
 };
 let bairros = [];
 const Bairros = data => {
@@ -43,8 +47,22 @@ const trataParametrosUrl = parametros => {
       }else{
         verificadorItemParametro(param);
       }
-    }
+      }
+    return true;
   });
+}
+
+const verificadorItemParametro = item => {
+  const isTipo = ImoveisTipos(item);
+  if ( isTipo.length > 0 ){
+    itens.tipos.push(item);
+  } else if ( (['venda','locacao','locacao_dia'].filter(t => t === item)).length > 0) {
+    itens.tipo_negocio.push(item);
+  } else if (Cidade(item)){
+    itens.cidade.push(item)
+  } else if (Bairros(item)){
+    itens.bairros.push(item)
+  }
 }
 
 const trataParametrosQuery = parametros => {
@@ -64,6 +82,7 @@ const trataParametrosQuery = parametros => {
           if ( temC.length === 0 ){
             itens[key].push(p);
           }
+          return true;
         })
       }else{
         if ( itens[key].map(item => item === parametros[key]) ){
@@ -72,22 +91,10 @@ const trataParametrosQuery = parametros => {
         }
       }
     }
+    return true;
   });
 }
 
-const verificadorItemParametro = item => {
-  const isTipo = ImoveisTipos(item);
-  if ( isTipo.length > 0 ){
-    itens.tipos.push(item);
-    let fechou = true;
-  } else if ( (['venda','locacao','locacao_dia'].filter(t => t === item)).length > 0) {
-    itens.tipo_negocio.push(item);
-  } else if (Cidade(item)){
-    itens.cidade.push(item)
-  } else if (Bairros(item)){
-    itens.bairros.push(item)
-  }
-}
 
 const FiltroUtil = (inicial,data) => {
   if ( inicial ) {
@@ -98,25 +105,21 @@ const FiltroUtil = (inicial,data) => {
     if ( itens.cidade.length === 0 ){
       itens.cidade.push(data.cidade.link);
     }
-    console.log(itens);
     return itens;
   }else{
     let retorno = "";
     let count = 0;
     Object.keys(data).map((chave,value) => {
-      console.log(chave,value,data[chave]);
       if ( data[chave].length > 0 ){
         retorno += count > 0 ? "&" : "";
         retorno += equivalentes[chave];
         retorno += "=";
-        retorno += ( typeof data[chave] === 'array' ) ? data[chave].join() : data[chave];
+        retorno += ( typeof data[chave] === 'object' ) ? data[chave].join() : data[chave];
         count++;
       }
-    })
-    console.log(retorno);
+      return false;
+    });
     return retorno;
   }
-
-
 }
 export default FiltroUtil;

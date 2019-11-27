@@ -8,8 +8,8 @@ class MenuItens extends Component {
   render(){
     let itens = this.props.menu.map((item) => {
         return (
-            <li key={item.id}>
-              <LinkWrapper key={item.id} to="#" className="dropdown-trigger black-text text-darken-2" data-target={`dropdown-${item.link}`}>{item.titulo} <i className="material-icons right black-text text-darken-2"></i></LinkWrapper>
+            <li key={item.link}>
+              <LinkWrapper key={`${item.link}-a`} to="#" className="dropdown-trigger black-text text-darken-2" data-target={`dropdown-${item.link}`}>{item.titulo} <i className="material-icons right black-text text-darken-2"></i></LinkWrapper>
               <ul id={`dropdown-${item.link}`} className="dropdown-content">
                 <li>
                   <LinkWrapper key={`int-${item.id}`} to={`imoveis-${item.link}-${this.props.cidadeLink}`} className="dropdown-trigger black-text text-darken-2" data-target={`dropdown-${item.link}`}>{`${item.titulo} Imóveis em ${this.props.cidadeNome}`} <i className="material-icons right black-text text-darken-2"></i></LinkWrapper>
@@ -47,8 +47,8 @@ class Menu extends Component {
               <LinkWrapper to={`/imoveis-${this.props.cidadeLink}`} className="brand-logo">
                 <Img loader={<PreLoader />} className="logo" src={`https://admin.powempresas.com/portais/logos/${this.props.logo}`}/>
               </LinkWrapper>
-              <ul id="nav-mobile" className="right hide-on-med-and-down text-darken-2">
-                <MenuItens menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={this.props.cidadeLink} cidadeNome={this.props.cidadeNome}/>
+              <ul key="menu" id="nav-mobile" className="right hide-on-med-and-down text-darken-2">
+                <MenuItens menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={`${this.props.cidadeLink}-menu`} cidadeNome={this.props.cidadeNome}/>
                 <li>
                   <LinkWrapper to="#" className="black-text text-darken-2">Sobre</LinkWrapper>
                 </li>

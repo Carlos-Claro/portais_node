@@ -13,19 +13,22 @@ export default class Filtro extends Component {
       tipos:this.props.filtro.tipos,
       tipo_negocio:this.props.filtro.tipo_negocio,
       bairros:this.props.filtro.bairros,
+      cidade:this.props.filtro.cidade,
     };
   }
 
-  componentDidUpdate(nextProps, nextState){
-    if(JSON.stringify(this.props.filtro) !== JSON.stringify(nextProps.filtro)) {
-      this.setState({
-        quartos:nextProps.filtro.quartos,
-        vagas:nextProps.filtro.vagas,
-        tipos:nextProps.filtro.tipos,
-        tipo_negocio:nextProps.filtro.tipo_negocio,
-        bairros:nextProps.filtro.bairros,
-
-      })
+  componentDidUpdate(prevProps, prevState){
+    if(JSON.stringify(this.props.filtro) !== JSON.stringify(prevProps.filtro)) {
+      this.setState(
+        {
+          quartos:this.props.filtro.quartos,
+          vagas:this.props.filtro.vagas,
+          tipos:this.props.filtro.tipos,
+          tipo_negocio:this.props.filtro.tipo_negocio,
+          bairros:this.props.filtro.bairros,
+          cidade:this.props.filtro.cidade,
+        }
+      );
     }
     Pubsub.subscribe('atualiza-filtro',(topico, info) => {
       switch(info.filtroTipo){
@@ -43,6 +46,9 @@ export default class Filtro extends Component {
           break;
         case 'tipo_negocio':
           this.setState({tipo_negocio:info.selecionados})
+          break;
+        default:
+
           break;
       }
       Pubsub.publish('set-filtro',this.state)
@@ -78,38 +84,20 @@ export default class Filtro extends Component {
 
 class FiltroCheckbox extends Component {
 
-  constructor(){
-    super();
-    this.checked = [];
-  }
-
   filtro(e){
     e.preventDefault();
-    console.log(this.campoInput.checked);
-    console.log(this.campoInput.value);
-    // console.log(tem);
-    // const tem = this.checked.filter(check => check !== this.campoInput.value);
-    // if( tem == undefined){
-    //   this.checked = this.checked.push(this.campoInput.value);
-    // }else{
-    //   this.checked = tem;
-    // }
-
-    console.log(this.checked);
-  }
-
-  componentDidUpdate(){
-
+    Pubsub.publish('atualiza-filtro',{filtroTipo:this.campoInput.name, item:this.campoInput.value});
   }
 
   render(){
     const options = this.props.valores.map((item) => {
       let s = this.props.selecionados.indexOf(item);
       var opt = "";
+      const key = `${this.props.name}-${item}`;
       if (s >= 0){
-        opt = <p><label><input ref={input => this.campoInput = input} name={this.props.name} onClick={this.filtro.bind(this)} type="checkbox" key={item} value={item} checked="checked" /><span>{item}</span></label></p>;
+        opt = <p className="col s3" key={key}><label><input ref={input => this.campoInput = input} name={this.props.name} onChange={this.filtro.bind(this)} type="checkbox" value={item} checked="checked" /><span>{item}</span></label></p>;
       }else{
-        opt = <p><label><input ref={input => this.campoInput = input} name={this.props.name} onClick={this.filtro.bind(this)} type="checkbox" key={item} value={item} /><span>{item}</span></label></p>;
+        opt = <p className="col s3" key={key}><label><input ref={input => this.campoInput = input} name={this.props.name} onChange={this.filtro.bind(this)} type="checkbox" value={item} /><span>{item}</span></label></p>;
       }
       return opt;
     })
@@ -126,7 +114,7 @@ class FiltroSelect extends Component {
 
   constructor(){
     super();
-    this.campo = [];
+    this.campo = false;
   }
 
   filtro(e){
@@ -135,26 +123,25 @@ class FiltroSelect extends Component {
     Pubsub.publish('atualiza-filtro',{filtroTipo:this.props.name,selecionados})
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps,prevState){
     this.campo = M.FormSelect.init(this.selectInput);
   }
 
   render(){
     const options = this.props.valores.map((item) => {
-      let s = this.props.selecionados.indexOf(item.link);
-      let opt = "";
-      if (s >= 0){
-        opt = <option key={item.id} value={item.link} selected >{item.nome}</option>;
-      }else{
-        opt = <option key={item.id} value={item.link}>{item.nome}</option>;
-
-      }
+      let opt = <option key={item.link} value={item.link} >{item.nome}</option>;
       return opt;
     })
     return(
-      <div className="input-field col s12">
-        <select name={this.props.name} type="select" onChange={this.filtro.bind(this)} multiple value={this.props.selecionados} ref={input => this.selectInput = input} >
-          <option value="0"  selected>Escolha seus {this.props.titulo}</option>
+      <div key={`${this.props.name}Div`} className="input-field col s12">
+        <select
+          key={`${this.props.name}Select`}
+          name={this.props.name}
+          type="select"
+          multiple
+          onChange={this.filtro.bind(this)}
+          value={this.props.selecionados} ref={input => this.selectInput = input} >
+          <option value="" key={`${this.props.name}-sem-valor`} >Escolha seus {this.props.titulo}</option>
           {options}
         </select>
         <label>Selecione o {this.props.titulo} de imóvel</label>

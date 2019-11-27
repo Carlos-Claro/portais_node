@@ -5,9 +5,8 @@
 # Consulta RESTAPI de imóveis
 ##################
 
-# Uteis
-Utilizando materialize-ui - https://material-ui.com/components/
+### TODO
 
-# TODO
-
-Breadscrumb com imoveis > pesquisa > cidade linkados
+#Breadscrumb com imoveis > pesquisa > cidade linkados
+#Paginação auto-rolagem
+#

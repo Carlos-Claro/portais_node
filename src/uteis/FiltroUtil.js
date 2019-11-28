@@ -70,9 +70,9 @@ const trataParametrosQuery = parametros => {
     if ( itens[key].length === 0 ){
       if ( parametros[key].indexOf(',') ){
         const param = parametros[key].split(',');
-        param.map(p => itens[key].push(p))
+        param.map(p => itens[key].push(parseInt(p)))
       }else{
-        itens[key].push(parametros[key]);
+        itens[key].push(parseInt(parametros[key]));
       }
     }else{
       if ( parametros[key].indexOf(',') >= 0 ){
@@ -80,14 +80,14 @@ const trataParametrosQuery = parametros => {
         param.map(p => {
           const temC = itens[key].filter(item => item === p);
           if ( temC.length === 0 ){
-            itens[key].push(p);
+            itens[key].push(parseInt(p));
           }
           return true;
         })
       }else{
         if ( itens[key].map(item => item === parametros[key]) ){
         }else{
-          itens[key].push(parametros[key]);
+          itens[key].push(parseInt(parametros[key]));
         }
       }
     }

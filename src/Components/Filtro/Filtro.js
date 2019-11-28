@@ -39,10 +39,24 @@ export default class Filtro extends Component {
           this.setState({tipos:info.selecionados})
           break;
         case 'quartos':
-          this.setState({quartos:info.selecionados})
+          const temq = this.state.quartos.filter(item => parseInt(info.selecionado) === item);
+          let quartos = [];
+          if ( temq.length > 0 ){
+            quartos = this.state.quartos.filter(item => parseInt(info.selecionado) !== item);
+          }else{
+            quartos = this.state.quartos.concat(parseInt(info.selecionado));
+          }
+          this.setState({quartos:quartos})
           break;
         case 'vagas':
-          this.setState({vagas:info.selecionados})
+          const temv = this.state.vagas.filter(item => parseInt(info.selecionado) === item);
+          let vagas = [];
+          if ( temv.length > 0 ){
+            vagas = this.state.vagas.filter(item => parseInt(info.selecionado) !== item);
+          }else{
+            vagas = this.state.vagas.concat(parseInt(info.selecionado));
+          }
+          this.setState({vagas:vagas})
           break;
         case 'tipo_negocio':
           this.setState({tipo_negocio:info.selecionados})
@@ -86,18 +100,36 @@ class FiltroCheckbox extends Component {
 
   filtro(e){
     e.preventDefault();
-    Pubsub.publish('atualiza-filtro',{filtroTipo:this.campoInput.name, item:this.campoInput.value});
+    Pubsub.publish('atualiza-filtro',{filtroTipo:e.target.name, selecionado:e.target.value});
   }
 
   render(){
+    console.log(this.props.selecionados);
     const options = this.props.valores.map((item) => {
       let s = this.props.selecionados.indexOf(item);
       var opt = "";
       const key = `${this.props.name}-${item}`;
       if (s >= 0){
-        opt = <p className="col s3" key={key}><label><input ref={input => this.campoInput = input} name={this.props.name} onChange={this.filtro.bind(this)} type="checkbox" value={item} checked="checked" /><span>{item}</span></label></p>;
+        opt = <p className="col s3" key={key}><label htmlFor={key}>
+        <input
+          id={key}
+          ref={input => this[`campoInput-${item}`] = input}
+          name={this.props.name}
+          onClick={this.filtro.bind(this)}
+          type="checkbox"
+          value={item}
+          checked="checked" />
+        <span>{item}</span></label></p>;
       }else{
-        opt = <p className="col s3" key={key}><label><input ref={input => this.campoInput = input} name={this.props.name} onChange={this.filtro.bind(this)} type="checkbox" value={item} /><span>{item}</span></label></p>;
+        opt = <p className="col s3" key={key}><label htmlFor={key}>
+        <input
+          id={key}
+          ref={input => this[`campoInput-${item}`] = input}
+          name={this.props.name}
+          onClick={this.filtro.bind(this)}
+          type="checkbox"
+          value={item} />
+        <span>{item}</span></label></p>;
       }
       return opt;
     })

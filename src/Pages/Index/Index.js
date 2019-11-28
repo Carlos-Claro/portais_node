@@ -138,7 +138,20 @@ export default class Index extends Component {
       retorno += this.state.cidade.uf;
       url += this.state.filtro.cidade;
     }
+    let complementoUrl = [];
+    if ( this.state.filtro.quartos.length > 0 ){
+      complementoUrl.push("quartos=" + this.state.filtro.quartos.join());
+      retorno += " ";
+      retorno += this.state.filtro.quartos.join(' ou ') + " quartos "
+    }
+    if ( this.state.filtro.vagas.length > 0 ){
+      complementoUrl.push("vagas=" + this.state.filtro.vagas.join());
+      retorno += " ";
+      retorno += this.state.filtro.vagas.join(' ou ') + " vagas de garagem "
+    }
     let retornoUrl = "/" + url + bairroUrl;
+    retornoUrl += (complementoUrl !== "" ? "?"+complementoUrl.join('&') : '');
+
     this.props.history.push(retornoUrl);
     this.setState({titulo:retorno,baseUrl:retornoUrl});
   }

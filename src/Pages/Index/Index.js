@@ -30,18 +30,40 @@ export default class Index extends Component {
                       quartos:[],
                       vagas:[],
                       tipos:[],
-                      tipo_negocio:'venda',
+                      tipo_negocio:['venda'],
                       bairros:[],
-                      cidade:''
+                      cidade:'',
+                      valorMin:[],
+                      valorMax:[],
+                      areaMin:[],
+                      areaMax:[],
+                      coluna:[],
                     },
                     imoveis:{itens:[],qtde:0},
                     url:{},
                     tipos: ImoveisTipos(),
                     titulo:'Imóveis ',
-                    baseUrl:''
+                    baseUrl:'',
+                    totalImoveis:''
                   };
   }
 
+  shouldComponentUpdate(nextProps,nextState){
+    if(
+        JSON.stringify(this.state.url) !== JSON.stringify(nextState.url)
+    ||  JSON.stringify(this.state.cidade) !== JSON.stringify(nextState.cidade)
+    ||  JSON.stringify(this.state.filtro) !== JSON.stringify(nextState.filtro)
+    ||  JSON.stringify(this.state.titulo) !== JSON.stringify(nextState.titulo)
+    ||  JSON.stringify(this.state.baseUrl) !== JSON.stringify(nextState.baseUrl)
+    ||  JSON.stringify(this.state.imoveis) !== JSON.stringify(nextState.imoveis)
+    ||  JSON.stringify(this.state.totalImoveis) !== JSON.stringify(nextState.totalImoveis)
+    ){
+      return true;
+    }
+    return false;
+
+
+  }
 
   componentDidMount(){
     var url = urlParse(this.props.location);
@@ -60,10 +82,8 @@ export default class Index extends Component {
       this.getTitulo();
     }
     Pubsub.subscribe('set-filtro',(topico, valores) => {
-      if(JSON.stringify(this.state.filtro) !== JSON.stringify(valores)) {
         this.setState({filtro:valores});
-      }
-    })
+    });
   }
 
   getFiltroInicial(){
@@ -74,12 +94,22 @@ export default class Index extends Component {
   getImoveis(){
     ApiService.ListaImoveis(FiltroUtil(false,this.state.filtro))
     .then(res => {
-      this.setState({imoveis:res.itens});
+      this.setState({imoveis:res.itens, totalImoveis:res.qtde_total});
     })
     .catch(error => {
       Alert.exibeMensagem('error','Problemas ao retorno imoveis');
     });
 
+  }
+
+  getCidade(host){
+    ApiService.GetCidade(host)
+    .then(res => {
+      this.setState({cidade:res, menu:res.menu, bairros:res.bairros});
+    })
+    .catch(error => {
+      Alert.exibeMensagem('error','Não foi possivel conectar ao banco de dados, tentaremos novamente em 5s');
+    });
   }
 
   getTitulo() {
@@ -101,19 +131,22 @@ export default class Index extends Component {
       retorno += " ";
       url += "-";
     }
-    if ( this.state.filtro.tipo_negocio !== ""){
-      this.state.filtro.tipo_negocio.map(item => {
-        if ( item === "venda" ){
+    if ( this.state.filtro.tipo_negocio.length > 0 ){
+      switch (this.state.filtro.tipo_negocio[0]) {
+        case "venda":
           retorno += "à venda ";
-        }else if (item === "locacao" ) {
+          break;
+        case "locacao":
           retorno += "para alugar ";
-        }else if (item === "locacao dia" ) {
+          break;
+        case "locacao_dia":
           retorno += "para temporada ";
-        }
-        url += item;
-        url += "-";
-        return false;
-      });
+          break;
+        default:
+        retorno += "";
+          break;
+      }
+      url += this.state.filtro.tipo_negocio[0] + "-";
     }
     let bairroUrl = '';
     if ( this.state.filtro.bairros.length > 0 ){
@@ -158,17 +191,6 @@ export default class Index extends Component {
 
 
 
-  getCidade(host){
-    ApiService.GetCidade(host)
-      .then(res => {
-        let filtro = this.state.filtro;
-        filtro.cidade = res.link
-        this.setState({cidade:res, menu:res.menu, bairros:res.bairros});
-      })
-      .catch(error => {
-        Alert.exibeMensagem('error','Não foi possivel conectar ao banco de dados, tentaremos novamente em 5s');
-      });
-  }
 
   render(){
     return (
@@ -177,6 +199,7 @@ export default class Index extends Component {
         <Menu logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link} cidadeNome={this.state.cidade.nome}/>
         <Filtro bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
         <h1>{this.state.titulo}</h1>
+        <h2>{this.state.totalImoveis} imóveis encontrados</h2>
         <Imoveis {...this.state.imoveis} />
         <Footer cidade={this.state.cidade}/>
         </div>

@@ -7,8 +7,11 @@ let itens = {
   quartos:[],
   vagas:[],
   cidade:[],
-  area:[],
-  preco:[],
+  areaMin:[],
+  areaMax:[],
+  valorMin:[],
+  valorMax:[],
+  coluna:[],
 }
 const equivalentes = {
   tipo_negocio:'tipo_negocio',
@@ -17,8 +20,11 @@ const equivalentes = {
   quartos:'quartos',
   vagas:'garagens',
   cidade:'cidades_link',
-  area:'area',
-  preco:'valor',
+  areaMin:'area-min',
+  areaMax:'area-max',
+  valorMin:'valor-min',
+  valorMax:'valor-max',
+  coluna:'coluna',
 };
 let bairros = [];
 const Bairros = data => {
@@ -104,6 +110,9 @@ const FiltroUtil = (inicial,data) => {
     trataParametrosQuery(data.url.query);
     if ( itens.cidade.length === 0 ){
       itens.cidade.push(data.cidade.link);
+    }
+    if ( itens.coluna.length === 0 ){
+      itens.coluna.push('ordem');
     }
     return itens;
   }else{

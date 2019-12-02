@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import urlParse from '../../uteis/urlParse';
 import Pubsub from 'pubsub-js';
+import M from 'materialize-css';
 
 import './Index.css';
 
 
 import Menu from '../../Components/Menu/Menu';
 import Filtro from '../../Components/Filtro/Filtro';
+import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs';
 import Footer from '../../Components/Footer/Footer';
 import Imoveis from '../../Components/Imoveis/Imoveis';
 import Alert from '../../uteis/Alert';
@@ -46,6 +48,7 @@ export default class Index extends Component {
                     baseUrl:'',
                     totalImoveis:''
                   };
+        M.AutoInit();
   }
 
   shouldComponentUpdate(nextProps,nextState){
@@ -198,6 +201,7 @@ export default class Index extends Component {
         <div className="container">
         <Menu logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link} cidadeNome={this.state.cidade.nome}/>
         <Filtro bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
+        <Breadcrumbs bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
         <h1>{this.state.titulo}</h1>
         <h2>{this.state.totalImoveis} imóveis encontrados</h2>
         <Imoveis {...this.state.imoveis} />

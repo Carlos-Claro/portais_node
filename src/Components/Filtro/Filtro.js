@@ -34,6 +34,8 @@ export default class Filtro extends Component {
 
   componentDidMount(){
     Pubsub.subscribe('atualiza-filtro',(topico, info) => {
+      console.log(topico);
+      console.log(info);
       switch(info.filtroTipo){
         case 'bairros':
         this.setState({bairros:info.selecionados})
@@ -78,6 +80,7 @@ export default class Filtro extends Component {
         break;
       }
       const data = this.state;
+      console.log(data);
       Pubsub.publish('set-filtro',data)
     });
 
@@ -198,7 +201,14 @@ class FiltroSelect extends Component {
 
   filtro(e){
     e.preventDefault();
-    const selecionados = this.campo.getSelectedValues()
+    console.log(this.selectInput.value);
+    console.log(this.props.name);
+    console.log(this.props.multiple);
+    console.log(this.campo.getSelectedValues());
+    let selecionados = this.campo.getSelectedValues()
+    if ( this.props.multiple === undefined ){
+      selecionados = this.selectInput.value;
+    }
     Pubsub.publish('atualiza-filtro',{filtroTipo:this.props.name,selecionados})
   }
 
@@ -211,6 +221,7 @@ class FiltroSelect extends Component {
       let opt = <option key={`${item.link}-${this.props.name}`} value={item.link} >{item.nome}</option>;
       return opt;
     })
+    console.log(this.props.multiple);
     return(
       <div key={`${this.props.name}Div`} className="input-field col s12">
         <select
@@ -218,7 +229,8 @@ class FiltroSelect extends Component {
           name={this.props.name}
           type="select"
           onChange={this.filtro.bind(this)}
-          value={this.props.selecionados} ref={input => this.selectInput = input}
+          value={this.props.selecionados}
+          ref={input => this.selectInput = input}
           {...this.props}
           >
           <option value="" key={`${this.props.name}-sem-valor`} >Escolha seus {this.props.titulo}</option>

@@ -101,20 +101,143 @@ const trataParametrosQuery = parametros => {
   });
 }
 
+const Titulo = () => {
+  let retorno = 'Imóveis ';
+  let url = 'imoveis-';
+  if ( itens.tipos.length > 0 ){
+    let contadorTipo = 0;
+    retorno = "";
+    url = "";
+    itens.tipos.map(item => {
+      retorno += contadorTipo > 0 ? ", " : "";
+      url += contadorTipo > 0 ? "+" : "";
+      const tipo = ImoveisTipos(item);
+      retorno += tipo[0].plural;
+      url += tipo[0].link;
+      contadorTipo++;
+      return false;
+    });
+    retorno += " ";
+    url += "-";
+  }
+  if ( itens.tipo_negocio.length > 0 ){
+    switch (itens.tipo_negocio[0]) {
+      case "venda":
+        retorno += "à venda ";
+        break;
+      case "locacao":
+        retorno += "para alugar ";
+        break;
+      case "locacao_dia":
+        retorno += "para temporada ";
+        break;
+      default:
+      retorno += "";
+        break;
+    }
+    url += itens.tipo_negocio[0] + "-";
+  }
+  let bairroUrl = '';
+  if ( itens.bairros.length > 0 ){
+    let contadorBairro = 0;
+    retorno += "no ";
+    itens.bairros.map(item => {
+      retorno += contadorBairro > 0 ? ", " : "";
+      const bairro = Bairros(item);
+      retorno += bairro[0].nome.toLowerCase();
+      retorno += " "
+      contadorBairro++;
+      return false;
+    });
+    bairroUrl = "-";
+    bairroUrl += itens.bairros.join('+');
+
+  }
+  if ( itens.cidade !== "" ){
+    retorno += "em ";
+    retorno += cidade.nome;
+    retorno += " - ";
+    retorno += cidade.uf;
+    url += itens.cidade;
+  }
+  let complementoUrl = [];
+  if ( itens.quartos.length > 0 ){
+    complementoUrl.push("quartos=" + itens.quartos.join());
+    retorno += " ";
+    retorno += itens.quartos.join(' ou ') + " quartos "
+  }
+  if ( itens.vagas.length > 0 ){
+    complementoUrl.push("vagas=" + itens.vagas.join());
+    retorno += " ";
+    retorno += itens.vagas.join(' ou ') + " vagas de garagem "
+  }
+  let retornoUrl = "/" + url + bairroUrl;
+  retornoUrl += (complementoUrl !== "" ? "?"+complementoUrl.join('&') : '');
+  return {retorno, retornoUrl};
+}
+
+const Bread = () => {
+  let retorno = [];
+  let complementoTexto = '';
+  let complementoLink = '';
+  if ( itens.cidade.length > 0 ){
+    complementoTexto = ` em ${cidade.nome}`
+    complementoLink = `-${cidade.link}`
+    retorno.push({titulo:`Imóveis em ${cidade.nome}`,link:`imoveis-${cidade.link}`});
+  }
+  if (itens.tipo_negocio.length > 0){
+    switch (itens.tipo_negocio[0]) {
+      case "venda":
+        complementoTexto = ` à venda ${complementoTexto}`;
+        break;
+      case "locacao":
+      complementoTexto = ` para alugar ${complementoTexto}`;
+        break;
+      case "locacao_dia":
+      complementoTexto = ` para temporada ${complementoTexto}`;
+        break;
+        default:
+    }
+    complementoLink = `-${itens.tipo_negocio[0]}${complementoLink}`;
+  }
+  if ( itens.tipos.length > 0 ){
+    const tipos = itens.tipos.map(item => {
+                                          const i = ImoveisTipos(item);
+                                          return {titulo:`${i[0].plural} ${complementoTexto}`,link:`${i[0].link}${complementoLink}`}
+                                            });
+    var a;
+    for (a = 0; a < tipos.length; a++){
+      retorno.push(tipos[a]);
+    }
+  }
+  return retorno;
+}
 
 const FiltroUtil = (inicial,data) => {
   if ( inicial ) {
-    Bairros(data.bairros);
-    Cidade(data.cidade);
-    trataParametrosUrl(data.url.parametros);
-    trataParametrosQuery(data.url.query);
-    if ( itens.cidade.length === 0 ){
-      itens.cidade.push(data.cidade.link);
+    switch (inicial) {
+      case true:
+        Bairros(data.bairros);
+        Cidade(data.cidade);
+        trataParametrosUrl(data.url.parametros);
+        trataParametrosQuery(data.url.query);
+        if ( itens.cidade.length === 0 ){
+          itens.cidade.push(data.cidade.link);
+        }
+        if ( itens.coluna.length === 0 ){
+          itens.coluna.push('ordem');
+        }
+        return itens;
+        case 'atualiza':
+        itens = data.filtro;
+        break;
+        case 'titulo':
+        return Titulo();
+        case 'breadcrumbs':
+        return Bread();
+      default:
+
     }
-    if ( itens.coluna.length === 0 ){
-      itens.coluna.push('ordem');
-    }
-    return itens;
   }else{
     let retorno = "";
     let count = 0;

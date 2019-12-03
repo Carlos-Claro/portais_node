@@ -34,8 +34,6 @@ export default class Filtro extends Component {
 
   componentDidMount(){
     Pubsub.subscribe('atualiza-filtro',(topico, info) => {
-      console.log(topico);
-      console.log(info);
       switch(info.filtroTipo){
         case 'bairros':
         this.setState({bairros:info.selecionados})
@@ -80,7 +78,6 @@ export default class Filtro extends Component {
         break;
       }
       const data = this.state;
-      console.log(data);
       Pubsub.publish('set-filtro',data)
     });
 
@@ -116,7 +113,7 @@ export default class Filtro extends Component {
           <div className="row">
             <form onSubmit={this.pesquisa.bind(this)} className="col s12">
               <div className="row">
-                <FiltroSelect name="coluna" titulo="Ordenação" valores={[{link:'ordem',nome:'Ordem'},{link:'preco-max',nome:'Preço Max'},{link:'preco-min',nome:'Preço Min'}]} selecionados={this.state.coluna} />
+                <FiltroSelect name="coluna" titulo="Ordenação" valores={[{link:'ordem',nome:'Ordem'},{link:'preco-max',nome:'Preço Max'},{link:'preco-min',nome:'Preço Min'}]} selecionados={this.state.coluna}/>
                 <FiltroSelect name="tipos" titulo="Tipos" valores={this.props.tipos} selecionados={this.state.tipos} multiple/>
                 <FiltroSelect name="bairros" titulo="Bairros" valores={this.props.bairros} selecionados={this.state.bairros} multiple/>
                 <FiltroCheckbox name="quartos" titulo="Quartos" valores={[1,2,3,4]} selecionados={this.state.quartos} />
@@ -201,10 +198,6 @@ class FiltroSelect extends Component {
 
   filtro(e){
     e.preventDefault();
-    console.log(this.selectInput.value);
-    console.log(this.props.name);
-    console.log(this.props.multiple);
-    console.log(this.campo.getSelectedValues());
     let selecionados = this.campo.getSelectedValues()
     if ( this.props.multiple === undefined ){
       selecionados = this.selectInput.value;
@@ -221,7 +214,6 @@ class FiltroSelect extends Component {
       let opt = <option key={`${item.link}-${this.props.name}`} value={item.link} >{item.nome}</option>;
       return opt;
     })
-    console.log(this.props.multiple);
     return(
       <div key={`${this.props.name}Div`} className="input-field col s12">
         <select

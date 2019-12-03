@@ -81,6 +81,7 @@ export default class Index extends Component {
       this.getFiltroInicial();
     }
     if(JSON.stringify(this.state.filtro) !== JSON.stringify(prevState.filtro)) {
+      FiltroUtil('atualiza',{filtro:this.state.filtro})
       this.getImoveis();
       this.getTitulo();
     }
@@ -116,80 +117,10 @@ export default class Index extends Component {
   }
 
   getTitulo() {
-    let retorno = 'Imóveis ';
-    let url = 'imoveis-';
-    if ( this.state.filtro.tipos.length > 0 ){
-      let contadorTipo = 0;
-      retorno = "";
-      url = "";
-      this.state.filtro.tipos.map(item => {
-        retorno += contadorTipo > 0 ? ", " : "";
-        url += contadorTipo > 0 ? "+" : "";
-        const tipo = ImoveisTipos(item);
-        retorno += tipo[0].plural;
-        url += tipo[0].link;
-        contadorTipo++;
-        return false;
-      });
-      retorno += " ";
-      url += "-";
-    }
-    if ( this.state.filtro.tipo_negocio.length > 0 ){
-      switch (this.state.filtro.tipo_negocio[0]) {
-        case "venda":
-          retorno += "à venda ";
-          break;
-        case "locacao":
-          retorno += "para alugar ";
-          break;
-        case "locacao_dia":
-          retorno += "para temporada ";
-          break;
-        default:
-        retorno += "";
-          break;
-      }
-      url += this.state.filtro.tipo_negocio[0] + "-";
-    }
-    let bairroUrl = '';
-    if ( this.state.filtro.bairros.length > 0 ){
-      let contadorBairro = 0;
-      retorno += "no ";
-      this.state.filtro.bairros.map(item => {
-        retorno += contadorBairro > 0 ? ", " : "";
-        const bairro = this.state.bairros.itens.filter(valor => valor.link === item);
-        retorno += bairro[0].nome.toLowerCase();
-        retorno += " "
-        contadorBairro++;
-        return false;
-      });
-      bairroUrl = "-";
-      bairroUrl += this.state.filtro.bairros.join('+');
+    let titulo = FiltroUtil('titulo');
 
-    }
-    if ( this.state.filtro.cidade !== "" ){
-      retorno += "em ";
-      retorno += this.state.cidade.nome;
-      retorno += " - ";
-      retorno += this.state.cidade.uf;
-      url += this.state.filtro.cidade;
-    }
-    let complementoUrl = [];
-    if ( this.state.filtro.quartos.length > 0 ){
-      complementoUrl.push("quartos=" + this.state.filtro.quartos.join());
-      retorno += " ";
-      retorno += this.state.filtro.quartos.join(' ou ') + " quartos "
-    }
-    if ( this.state.filtro.vagas.length > 0 ){
-      complementoUrl.push("vagas=" + this.state.filtro.vagas.join());
-      retorno += " ";
-      retorno += this.state.filtro.vagas.join(' ou ') + " vagas de garagem "
-    }
-    let retornoUrl = "/" + url + bairroUrl;
-    retornoUrl += (complementoUrl !== "" ? "?"+complementoUrl.join('&') : '');
-
-    this.props.history.push(retornoUrl);
-    this.setState({titulo:retorno,baseUrl:retornoUrl});
+    this.props.history.push(titulo.retornoUrl);
+    this.setState({titulo:titulo.retorno,baseUrl:titulo.retornoUrl});
   }
 
 
@@ -201,7 +132,7 @@ export default class Index extends Component {
         <div className="container">
         <Menu logo={this.state.cidade.topo} menu={this.state.menu} cidadeLink={this.state.cidade.link} cidadeNome={this.state.cidade.nome}/>
         <Filtro bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
-        <Breadcrumbs bairros={this.state.bairros.itens} tipos={this.state.tipos} filtro={this.state.filtro}/>
+        <Breadcrumbs filtro={this.state.filtro}/>
         <h1>{this.state.titulo}</h1>
         <h2>{this.state.totalImoveis} imóveis encontrados</h2>
         <Imoveis {...this.state.imoveis} />

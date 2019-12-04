@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import M from 'materialize-css';
+// import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 
 import LinkWrapper from '../../uteis/LinkWrapper';
@@ -32,7 +32,7 @@ class Imovel extends Component {
        <li key={this.props.imovel.id} className="imovel-lista">
          <div className="card">
           <div className="card-image">
-            <img src={this.props.imovel.images[0].arquivo} />
+            <img src={this.props.imovel.images[0].arquivo} alt={this.props.imovel.images[0].titulo} />
             <span className="card-title">{this.props.imovel.nome}</span>
           </div>
           <div className="card-content">

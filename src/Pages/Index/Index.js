@@ -52,6 +52,8 @@ export default class Index extends Component {
   }
 
   shouldComponentUpdate(nextProps,nextState){
+    console.log(this.props.location);
+    console.log(nextProps.location);
     if(
         JSON.stringify(this.state.url) !== JSON.stringify(nextState.url)
     ||  JSON.stringify(this.state.cidade) !== JSON.stringify(nextState.cidade)
@@ -60,6 +62,7 @@ export default class Index extends Component {
     ||  JSON.stringify(this.state.baseUrl) !== JSON.stringify(nextState.baseUrl)
     ||  JSON.stringify(this.state.imoveis) !== JSON.stringify(nextState.imoveis)
     ||  JSON.stringify(this.state.totalImoveis) !== JSON.stringify(nextState.totalImoveis)
+    ||  JSON.stringify(this.props.location) !== JSON.stringify(nextProps.location)
     ){
       return true;
     }

@@ -2,7 +2,7 @@ import React, {Component,Fragment} from 'react';
 import Img from 'react-image';
 import PreLoader from '../PreLoader/PreLoader';
 
-import { Carousel } from 'react-materialize';
+
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 
@@ -44,17 +44,7 @@ export default class ImovelItem extends Component {
         <h1>{`${this.props._id} - ${this.props.nome}`}</h1>
         <div className="row" ref={elemento => this.elemento = elemento}>
           <div className="col s12">
-              <Carousel images={this.state.images} options={{
-                dist: -100,
-    duration: 200,
-    fullWidth: true,
-    indicators: true,
-    noWrap: false,
-    numVisible: 5,
-    onCycleTo: null,
-    padding: 0,
-    shift: 0
-  }} />
+
           </div>
         </div>
         <p>{this.props.descricao}</p>

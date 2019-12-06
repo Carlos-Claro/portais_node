@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class Formulario extends Component{
+export default class Formulario extends Component{
 
   enviaForm(e){
     e.preventDefault();
@@ -11,7 +11,7 @@ class Formulario extends Component{
   render(){
     return(
       <form onSubmit={this.enviaForm.bind(this)}>
-      
+
       </form>
     );
   }

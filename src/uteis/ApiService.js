@@ -8,7 +8,7 @@ const ApiService = {
         'Content-Type': 'application/json'
       })
     };
-    return fetch(`http://localhost:5000/imoveismongo?${filtro}` , requestInfo)
+    return fetch(`http://imoveis.powempresas.com/imoveismongo?${filtro}` , requestInfo)
     .then(res => ApiService.TrataErros(res))
     .then(data => data.json());
   },
@@ -20,12 +20,12 @@ const ApiService = {
         'Content-Type': 'application/json'
       })
     };
-    return fetch(`http://localhost:5000/imoveismongo/${_id}` , requestInfo)
+    return fetch(`http://imoveis.powempresas.com/imoveismongo/${_id}` , requestInfo)
     .then(res => ApiService.TrataErros(res))
     .then(data => data.json());
   },
   GetCidade: host => {
-    return fetch(`http://localhost:5000/get_cidade/?dominio=${host}`)
+    return fetch(`http://imoveis.powempresas.com/get_cidade/?dominio=${host}`)
     .then(res => ApiService.TrataErros(res) )
     .then(data => data.json());
   },

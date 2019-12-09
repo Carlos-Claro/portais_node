@@ -1,10 +1,14 @@
 import React, {Component,Fragment} from 'react';
+
+import { Carousel } from 'react-responsive-carousel';
+
 import Img from 'react-image';
 import PreLoader from '../PreLoader/PreLoader';
 
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import LinkWrapper from '../../uteis/LinkWrapper';
 
@@ -15,7 +19,7 @@ export default class ImovelItem extends Component {
   constructor(props){
     super(props);
     this.state = {
-      images:[''],
+      images:[],
       galeria:'',
 
     };
@@ -33,23 +37,47 @@ export default class ImovelItem extends Component {
   }
 
   componentDidUpdate(prevProps,prevState){
-    const images = this.props.images.map(image => image.arquivo);
-    this.setState({images});
+    console.log(this.props.images.length);
+    if ( this.props.images.length > 0 ){
+      const images = this.props.images.map(image =>
+        {
+          return (
+            <div key={image.id}>
+              <img src={image.arquivo.replace('destaque','vitrine')} alt={image.titulo}/>
+              <p className="legend">{image.titulo}</p>
+            </div>
+          )
+        }
+      );
+      this.setState({images});
+    }
   }
+
 
   render(){
     console.log(this.props);
     return(
       <Fragment>
         <h1>{`${this.props._id} - ${this.props.nome}`}</h1>
-        <div className="row" ref={elemento => this.elemento = elemento}>
-          <div className="col s12">
-
+        <div className="row" >
+          <div className="col s12 x6">
+            /*https://www.npmjs.com/package/react-responsive-carousel*/
+            <Carousel showArrows={true} >
+              {this.state.images}
+            </Carousel>
+          </div>
+          <div className="col s12 x6">
+            <Formulario idImovel={this.props.id} idEmpresa={this.props.id_empresa}/>
           </div>
         </div>
-        <p>{this.props.descricao}</p>
         <div className="row">
-
+          <div className="col s12 x6">
+            <p>{this.props.descricao}</p>
+          </div>
+          <div className="col s12 x6">
+          </div>
+        </div>
+        <div className="row">
         </div>
       </Fragment>
       )

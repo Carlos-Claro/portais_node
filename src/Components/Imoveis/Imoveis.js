@@ -15,7 +15,6 @@ export default class Imoveis extends Component {
   }
 
   render(){
-    console.log(this.props);
     return(
       <ul>
         {this.props.itens.map((imovel) => <Imovel imovel={imovel} key={imovel._id}/>)}

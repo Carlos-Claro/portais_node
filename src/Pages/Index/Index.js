@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import urlParse from '../../uteis/urlParse';
 import Pubsub from 'pubsub-js';
-import M from 'materialize-css';
 
 import './Index.css';
 
@@ -48,12 +47,10 @@ export default class Index extends Component {
                     baseUrl:'',
                     totalImoveis:''
                   };
-        M.AutoInit();
   }
 
   shouldComponentUpdate(nextProps,nextState){
-    console.log(this.props.location);
-    console.log(nextProps.location);
+    console.log(this.props);
     if(
         JSON.stringify(this.state.url) !== JSON.stringify(nextState.url)
     ||  JSON.stringify(this.state.cidade) !== JSON.stringify(nextState.cidade)

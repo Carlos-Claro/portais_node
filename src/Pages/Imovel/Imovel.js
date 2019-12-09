@@ -37,8 +37,6 @@ export default class Imovel extends Component {
       return true;
     }
     return false;
-
-
   }
 
   componentDidMount(){
@@ -51,7 +49,6 @@ export default class Imovel extends Component {
     if(JSON.stringify(this.state.url) !== JSON.stringify(prevState.url)) {
       this.getCidade(this.state.url.hostname);
     }
-
   }
 
   getImovel(_id){

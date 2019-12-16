@@ -1,0 +1,11 @@
+.aberto {
+  display: show;
+}
+.fechado {
+  display: none;
+}
+.text-bold {
+  font-weight: 500;
+}
+.texto-descricao {
+}

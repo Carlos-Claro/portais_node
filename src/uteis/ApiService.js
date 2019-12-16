@@ -1,5 +1,9 @@
-
+/*
+http://imoveis.powempresas.com/
+http://localhost:5000/
+*/
 const ApiService = {
+  endereco: "http://imoveis.powempresas.com/",
   ListaImoveis: filtro => {
 
     const requestInfo = {
@@ -8,7 +12,7 @@ const ApiService = {
         'Content-Type': 'application/json'
       })
     };
-    return fetch(`http://imoveis.powempresas.com/imoveismongo?${filtro}` , requestInfo)
+    return fetch(`${ApiService.endereco}imoveismongo?${filtro}` , requestInfo)
     .then(res => ApiService.TrataErros(res))
     .then(data => data.json());
   },
@@ -20,12 +24,12 @@ const ApiService = {
         'Content-Type': 'application/json'
       })
     };
-    return fetch(`http://imoveis.powempresas.com/imoveismongo/${_id}` , requestInfo)
+    return fetch(`${ApiService.endereco}imoveismongo/${_id}` , requestInfo)
     .then(res => ApiService.TrataErros(res))
     .then(data => data.json());
   },
   GetCidade: host => {
-    return fetch(`http://imoveis.powempresas.com/get_cidade/?dominio=${host}`)
+    return fetch(`${ApiService.endereco}get_cidade/?dominio=${host}`)
     .then(res => ApiService.TrataErros(res) )
     .then(data => data.json());
   },

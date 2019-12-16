@@ -15,3 +15,15 @@
     opacity: 0.01;
     transition: opacity 300ms ease-in;
 }
+
+.imovelinfo-car {
+  padding: 10px 10px 0px 10px;
+}
+
+.remove-margin {
+  margin: 5px 0;
+}
+
+.ico-area {
+  margin-right: 0!important;
+}

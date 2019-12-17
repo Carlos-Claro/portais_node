@@ -32,6 +32,18 @@ export default class Imoveis extends Component {
 
 }
 
+class ImovelGaleria extends Component {
+  render(){
+    return(
+      <Fragment>
+        <div className="card-image">
+          <img src={this.props.images[0].arquivo} alt={this.props.images[0].titulo} />
+        </div>
+      </Fragment>
+    )
+  }
+}
+
 class ImovelInfo extends Component {
   render(){
 
@@ -41,20 +53,21 @@ class ImovelInfo extends Component {
     const area_terreno = this.props.imovel.area_terreno;
 
     if (quartos){
-      var quarto = <li class="left imovelinfo-car"><i class="material-icons left">hotel</i> {quartos}</li>;
+      var quarto = <li className="left imovelinfo-car"><i className="material-icons left">hotel</i> {quartos}</li>;
     }
     if (banheiros){
-      var banheiro = <li class="left imovelinfo-car"><i class="material-icons left">hot_tub</i> {banheiros}</li>;
+      var banheiro = <li className="left imovelinfo-car"><i className="material-icons left">hot_tub</i> {banheiros}</li>;
     }
     if (vagas){
-      var vaga = <li class="left imovelinfo-car"><i class="material-icons left">directions_car</i> {vaga}  </li>;
+      var vaga = <li className="left imovelinfo-car"><i className="material-icons left">directions_car</i> {vaga}  </li>;
     }
     if (area_terreno){
-      var areaterreno = <li class="left imovelinfo-car" title="Area"><i class="material-icons left ico-area">map</i>{area_terreno}m²  </li>;
+      var areaterreno = <li className="left imovelinfo-car" title="Area"><i className="material-icons left ico-area">map</i>{area_terreno}m²  </li>;
     }
 
     return (
       <Fragment>
+        <span className="card-title">{this.props.imovel.nome}</span>
         <div>
           <ul>
             {quarto}
@@ -63,7 +76,6 @@ class ImovelInfo extends Component {
             {areaterreno}
           </ul>
         </div>
-
       </Fragment>
     )
   }
@@ -90,7 +102,7 @@ class ImovelDescricao extends Component {
   render(){
     return(
       <Fragment>
-        <div class="row">
+        <div className="row">
           <div className="col s12">
             <div>
               <p onClick={this.aumentaTexto.bind(this)} className={`texto-descricao ${this.state.short ? 'aberto' : 'fechado'}`}>
@@ -133,24 +145,27 @@ class ImovelLinks extends Component {
 class ImovelPreco extends Component{
   render(){
     const preco = () => {
+
       let retornoPreco = '';
       if ( this.props.imovel.preco_venda ){
-        retornoPreco += 'R$';
         retornoPreco += this.props.imovel.preco_venda;
       }
       if ( this.props.imovel.preco_locacao ){
-        retornoPreco += 'R$';
         retornoPreco += this.props.imovel.preco_locacao;
       }
-
       if ( this.props.imovel.preco_locacao_dia ){
-        retornoPreco += 'R$';
         retornoPreco += this.props.imovel.preco_locacao_dia;
       }
       return retornoPreco;
     }
     return(
-      preco()
+      <Fragment>
+        <div className="row">
+          <div className="col s12">
+            <NumberFormat value={preco()} displayType={'text'} thousandSeparator={true} prefix={'R$'}/>
+            </div>
+        </div>
+      </Fragment>
     )
   }
 }
@@ -162,10 +177,7 @@ class Imovel extends Component {
     return(
        <li key={this.props.imovel.id} className="imovel-lista">
          <div className="card">
-          <div className="card-image">
-            <img src={this.props.imovel.images[0].arquivo} alt={this.props.imovel.images[0].titulo} />
-            <span className="card-title">{this.props.imovel.nome}</span>
-          </div>
+          <ImovelGaleria images={this.props.imovel.images}/>
           <ImovelInfo imovel={this.props.imovel}/>
           <ImovelPreco imovel={this.props.imovel}/>
           <ImovelDescricao descricao={this.props.imovel.descricao}/>

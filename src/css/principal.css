@@ -1,3 +1,1522 @@
+/**
+ * Códigos globais
+ */
+/* Classes pré-definidas para espessura da fonte */
+.f-slim {
+ font-weight: 300 !important;
+}
+
+.f-light {
+ font-weight: 400 !important;
+}
+
+.f-semi-bold {
+ font-weight: 500 !important;
+}
+
+.f-bold {
+ font-weight: 600 !important;
+}
+
+.f-more-bold {
+ font-weight: 700 !important;
+}
+
+.f-super-bold {
+ font-weight: 800 !important;
+}
+
+/* Classes pré-definidas para estilo da fonte */
+.f-italic {
+  font-style: italic !important;
+}
+
+/* Classes pré-definidas para transformação do texto */
+.f-capitalize {
+  text-transform: capitalize !important;
+}
+
+.f-uppercase {
+  text-transform: uppercase !important;
+}
+
+.f-lowercase {
+  text-transform: lowercase !important;
+}
+
+.justify-align {
+  text-align: justify !important;
+}
+
+/* Classes pré-definidas com tamanho font-size em pixels */
+.fs-1 {
+ font-size: 1px !important;
+}
+
+.fs-2 {
+ font-size: 2px !important;
+}
+
+.fs-3 {
+ font-size: 3px !important;
+}
+
+.fs-4 {
+ font-size: 4px !important;
+}
+
+.fs-5 {
+ font-size: 5px !important;
+}
+
+.fs-6 {
+ font-size: 6px !important;
+}
+
+.fs-7 {
+ font-size: 7px !important;
+}
+
+.fs-8 {
+ font-size: 8px !important;
+}
+
+.fs-9 {
+ font-size: 9px !important;
+}
+
+.fs-10 {
+ font-size: 10px !important;
+}
+
+.fs-11 {
+ font-size: 11px !important;
+}
+
+.fs-12 {
+ font-size: 12px !important;
+}
+
+.fs-13 {
+ font-size: 13px !important;
+}
+
+.fs-14 {
+ font-size: 14px !important;
+}
+
+.fs-15 {
+ font-size: 15px !important;
+}
+
+.fs-15 {
+ font-size: 15px !important;
+}
+
+.fs-16 {
+ font-size: 16px !important;
+}
+
+.fs-17 {
+ font-size: 17px !important;
+}
+
+.fs-18 {
+ font-size: 18px !important;
+}
+
+.fs-19 {
+ font-size: 19px !important;
+}
+
+.fs-20 {
+ font-size: 20px !important;
+}
+
+.fs-21 {
+ font-size: 21px !important;
+}
+
+.fs-22 {
+ font-size: 22px !important;
+}
+
+.fs-23 {
+ font-size: 23px !important;
+}
+
+.fs-24 {
+ font-size: 24px !important;
+}
+
+.fs-25 {
+ font-size: 25px !important;
+}
+
+.fs-26 {
+ font-size: 26px !important;
+}
+
+.fs-27 {
+ font-size: 27px !important;
+}
+
+.fs-28 {
+ font-size: 28px !important;
+}
+
+.fs-29 {
+ font-size: 29px !important;
+}
+
+.fs-30 {
+ font-size: 30px !important;
+}
+
+.fs-31 {
+ font-size: 31px !important;
+}
+
+.fs-32 {
+ font-size: 32px !important;
+}
+
+.fs-33 {
+ font-size: 33px !important;
+}
+
+.fs-34 {
+ font-size: 34px !important;
+}
+
+.fs-35 {
+ font-size: 35px !important;
+}
+
+.fs-36 {
+ font-size: 36px !important;
+}
+
+.fs-37 {
+ font-size: 37px !important;
+}
+
+.fs-38 {
+ font-size: 38px !important;
+}
+
+.fs-39 {
+ font-size: 39px !important;
+}
+
+.fs-40 {
+ font-size: 40px !important;
+}
+
+.fs-41 {
+ font-size: 41px !important;
+}
+
+.fs-42 {
+ font-size: 42px !important;
+}
+
+.fs-43 {
+ font-size: 43px !important;
+}
+
+.fs-44 {
+ font-size: 44px !important;
+}
+
+.fs-45 {
+ font-size: 45px !important;
+}
+
+.fs-46 {
+ font-size: 46px !important;
+}
+
+.fs-47 {
+ font-size: 47px !important;
+}
+
+.fs-48 {
+ font-size: 48px !important;
+}
+
+/* Margens completa */
+.m-0 {
+  margin: 0 !important;
+}
+
+.m-1 {
+  margin: 10px !important;
+}
+
+.m-2 {
+  margin: 20px !important;
+}
+
+.m-3 {
+  margin: 30px !important;
+}
+
+.m-4 {
+  margin: 40px !important;
+}
+
+.m-5 {
+  margin: 50px !important;
+}
+
+.m-auto {
+  margin: auto !important;
+}
+
+/* Margem de topo */
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mt-1 {
+  margin-top: 10px !important;
+}
+
+.mt-2 {
+  margin-top: 20px !important;
+}
+
+.mt-3 {
+  margin-top: 30px !important;
+}
+
+.mt-4 {
+  margin-top: 40px !important;
+}
+
+.mt-5 {
+  margin-top: 50px !important;
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+/* Margem de baixo */
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-1 {
+  margin-bottom: 10px !important;
+}
+
+.mb-2 {
+  margin-bottom: 20px !important;
+}
+
+.mb-3 {
+  margin-bottom: 30px !important;
+}
+
+.mb-4 {
+  margin-bottom: 40px !important;
+}
+
+.mb-5 {
+  margin-bottom: 50px !important;
+}
+
+.mb-auto {
+  margin-bottom: auto !important;
+}
+
+/* Margem da esquerda */
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.ml-1 {
+  margin-left: 10px !important;
+}
+
+.ml-2 {
+  margin-left: 20px !important;
+}
+
+.ml-3 {
+  margin-left: 30px !important;
+}
+
+.ml-4 {
+  margin-left: 40px !important;
+}
+
+.ml-5 {
+  margin-left: 50px !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+/* Margem da direita */
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mr-1 {
+  margin-right: 10px !important;
+}
+
+.mr-2 {
+  margin-right: 20px !important;
+}
+
+.mr-3 {
+  margin-right: 30px !important;
+}
+
+.mr-4 {
+  margin-right: 40px !important;
+}
+
+.mr-5 {
+  margin-right: 50px !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+/* Margem de cima e baixo */
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.my-1 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.my-2 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.my-3 {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.my-4 {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.my-5 {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+}
+
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+/* Margem de direita e esquerda */
+.mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mx-1 {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.mx-2 {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.m-3 {
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+}
+
+.mx-4 {
+  margin-left: 40px !important;
+  margin-right: 40px !important;
+}
+
+.mx-5 {
+  margin-left: 50px !important;
+  margin-right: 50px !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Espaçamento completa */
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-1 {
+  padding: 10px !important;
+}
+
+.p-2 {
+  padding: 20px !important;
+}
+
+.p-3 {
+  padding: 30px !important;
+}
+
+.p-4 {
+  padding: 40px !important;
+}
+
+.p-5 {
+  padding: 50px !important;
+}
+
+/* Espaçamento no topo */
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pt-1 {
+  padding-top: 10px !important;
+}
+
+.pt-2 {
+  padding-top: 20px !important;
+}
+
+.pt-3 {
+  padding-top: 30px !important;
+}
+
+.pt-4 {
+  padding-top: 40px !important;
+}
+
+.pt-5 {
+  padding-top: 50px !important;
+}
+
+/* Espaçamento em baixo */
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pb-1 {
+  padding-bottom: 10px !important;
+}
+
+.pb-2 {
+  padding-bottom: 20px !important;
+}
+
+.pb-3 {
+  padding-bottom: 30px !important;
+}
+
+.pb-4 {
+  padding-bottom: 40px !important;
+}
+
+.pb-5 {
+  padding-bottom: 50px !important;
+}
+
+/* Espaçamento na esquerda */
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pl-1 {
+  padding-left: 10px !important;
+}
+
+.pl-2 {
+  padding-left: 20px !important;
+}
+
+.pl-3 {
+  padding-left: 30px !important;
+}
+
+.pl-4 {
+  padding-left: 40px !important;
+}
+
+.pl-5 {
+  padding-left: 50px !important;
+}
+
+/* Espaçamento na direita */
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pr-1 {
+  padding-right: 10px !important;
+}
+
+.pr-2 {
+  padding-right: 20px !important;
+}
+
+.pr-3 {
+  padding-right: 30px !important;
+}
+
+.pr-4 {
+  padding-right: 40px !important;
+}
+
+.pr-5 {
+  padding-right: 50px !important;
+}
+
+/* Espaçamento em cima e baixo */
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.py-1 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.py-2 {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.py-3 {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+.py-4 {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.py-5 {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Espaçamento na direita e esquerda */
+.px-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.px-1 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.px-2 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.px-3 {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+.px-4 {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+.px-5 {
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+}
+
+/* Cor de fundo transparente */
+.blue-darken-4-transparency-1 {
+  background-color: rgba(13, 71, 161, .1) !important;
+}
+
+.blue-darken-4-transparency-2 {
+  background-color: rgba(13, 71, 161, .2) !important;
+}
+
+.blue-darken-4-transparency-3 {
+  background-color: rgba(13, 71, 161, .3) !important;
+}
+
+.blue-darken-4-transparency-4 {
+  background-color: rgba(13, 71, 161, .4) !important;
+}
+
+.blue-darken-4-transparency-5 {
+  background-color: rgba(13, 71, 161, .5) !important;
+}
+
+.blue-darken-4-transparency-6 {
+  background-color: rgba(13, 71, 161, .6) !important;
+}
+
+.blue-darken-4-transparency-7 {
+  background-color: rgba(13, 71, 161, .7) !important;
+}
+
+.blue-darken-4-transparency-8 {
+  background-color: rgba(13, 71, 161, .8) !important;
+}
+
+.blue-darken-4-transparency-9 {
+  background-color: rgba(13, 71, 161, .9) !important;
+}
+
+/* Estilização para deixar campos do formulário claro */
+.form-claro .input-field input:not([type]),
+.form-claro .input-field input[type=text]:not(.browser-default),
+.form-claro .input-field input[type=password]:not(.browser-default),
+.form-claro .input-field input[type=email]:not(.browser-default),
+.form-claro .input-field input[type=url]:not(.browser-default),
+.form-claro .input-field input[type=time]:not(.browser-default),
+.form-claro .input-field input[type=date]:not(.browser-default),
+.form-claro .input-field input[type=datetime]:not(.browser-default),
+.form-claro .input-field input[type=datetime-local]:not(.browser-default),
+.form-claro .input-field input[type=tel]:not(.browser-default),
+.form-claro .input-field input[type=number]:not(.browser-default),
+.form-claro .input-field input[type=search]:not(.browser-default),
+.form-claro .input-field textarea.materialize-textarea {
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+}
+
+.form-claro .input-field input:not([type]):focus:not([readonly]),
+.form-claro .input-field input[type=text]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=password]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=email]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=url]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=time]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=date]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=number]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field input[type=search]:not(.browser-default):focus:not([readonly]),
+.form-claro .input-field textarea.materialize-textarea:focus:not([readonly]) {
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  -webkit-box-shadow: 0 1px 0 0 #fff;
+          box-shadow: 0 1px 0 0 #fff;
+}
+
+.form-claro .input-field input:not([type]):focus:not([readonly]) + label,
+.form-claro .input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field textarea.materialize-textarea:focus:not([readonly]) + label {
+  background-color: transparent;
+  color: #fff;
+}
+
+.form-claro .input-field .helper-text,
+.form-claro .input-field label,
+.form-claro .input-field input:not([type]):focus:not([readonly]) + label,
+.form-claro .input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+.form-claro .input-field textarea.materialize-textarea:focus:not([readonly]) + label {
+  background-color: transparent;
+  color: #fff;
+}
+
+.form-claro .input-field input:not([type]):focus.valid ~ label,
+.form-claro .input-field input[type=text]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=password]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=email]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=url]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=time]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=date]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=number]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field input[type=search]:not(.browser-default):focus.valid ~ label,
+.form-claro .input-field textarea.materialize-textarea:focus.valid ~ label {
+  background-color: transparent;
+  color: #14e062;
+}
+
+.form-claro .input-field input:not([type]):focus.invalid ~ label,
+.form-claro .input-field input[type=text]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=password]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=email]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=url]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=time]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=date]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=number]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field input[type=search]:not(.browser-default):focus.invalid ~ label,
+.form-claro .input-field textarea.materialize-textarea:focus.invalid ~ label {
+  background-color: transparent;
+  color: #ff9999;
+}
+
+.form-claro .input-field input.valid:not([type]), input.valid:not([type]):focus,
+.form-claro .input-field input.valid[type=text]:not(.browser-default),
+.form-claro .input-field input.valid[type=text]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=password]:not(.browser-default),
+.form-claro .input-field input.valid[type=password]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=email]:not(.browser-default),
+.form-claro .input-field input.valid[type=email]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=url]:not(.browser-default),
+.form-claro .input-field input.valid[type=url]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=time]:not(.browser-default),
+.form-claro .input-field input.valid[type=time]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=date]:not(.browser-default),
+.form-claro .input-field input.valid[type=date]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=datetime]:not(.browser-default),
+.form-claro .input-field input.valid[type=datetime]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=datetime-local]:not(.browser-default),
+.form-claro .input-field input.valid[type=datetime-local]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=tel]:not(.browser-default),
+.form-claro .input-field input.valid[type=tel]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=number]:not(.browser-default),
+.form-claro .input-field input.valid[type=number]:not(.browser-default):focus,
+.form-claro .input-field input.valid[type=search]:not(.browser-default),
+.form-claro .input-field input.valid[type=search]:not(.browser-default):focus,
+.form-claro .input-field textarea.materialize-textarea.valid,
+.form-claro .input-field textarea.materialize-textarea.valid:focus, .select-wrapper.valid > input.select-dropdown {
+  background-color: transparent;
+  border-bottom: 1px solid #14e062;
+  -webkit-box-shadow: 0 1px 0 0 #14e062;
+          box-shadow: 0 1px 0 0 #14e062;
+}
+
+.form-claro .input-field input.invalid:not([type]), input.invalid:not([type]):focus,
+.form-claro .input-field input.invalid[type=text]:not(.browser-default),
+.form-claro .input-field input.invalid[type=text]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=password]:not(.browser-default),
+.form-claro .input-field input.invalid[type=password]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=email]:not(.browser-default),
+.form-claro .input-field input.invalid[type=email]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=url]:not(.browser-default),
+.form-claro .input-field input.invalid[type=url]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=time]:not(.browser-default),
+.form-claro .input-field input.invalid[type=time]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=date]:not(.browser-default),
+.form-claro .input-field input.invalid[type=date]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=datetime]:not(.browser-default),
+.form-claro .input-field input.invalid[type=datetime]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=datetime-local]:not(.browser-default),
+.form-claro .input-field input.invalid[type=datetime-local]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=tel]:not(.browser-default),
+.form-claro .input-field input.invalid[type=tel]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=number]:not(.browser-default),
+.form-claro .input-field input.invalid[type=number]:not(.browser-default):focus,
+.form-claro .input-field input.invalid[type=search]:not(.browser-default),
+.form-claro .input-field input.invalid[type=search]:not(.browser-default):focus,
+.form-claro .input-field textarea.materialize-textarea.invalid,
+.form-claro .input-field textarea.materialize-textarea.invalid:focus, .select-wrapper.invalid > input.select-dropdown,
+.form-claro .input-field .select-wrapper.invalid > input.select-dropdown:focus {
+  background-color: transparent;
+  border-bottom: 1px solid #ff9999;
+  -webkit-box-shadow: 0 1px 0 0 #ff9999;
+          box-shadow: 0 1px 0 0 #ff9999;
+}
+
+.form-claro .input-field input:not([type]).valid ~ .helper-text[data-success],
+.form-claro .input-field input:not([type]):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input:not([type]).invalid ~ .helper-text[data-error],
+.form-claro .input-field input:not([type]):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=text]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=text]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=text]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=text]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=password]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=password]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=password]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=password]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=email]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=email]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=email]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=email]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=url]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=url]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=url]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=url]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=time]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=time]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=time]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=time]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=date]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=date]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=date]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=date]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=datetime]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=datetime]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=datetime-local]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=datetime-local]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=tel]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=tel]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=number]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=number]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=number]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=number]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=search]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=search]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-claro .input-field input[type=search]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-claro .input-field input[type=search]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-claro .input-field textarea.materialize-textarea.valid ~ .helper-text[data-success],
+.form-claro .input-field textarea.materialize-textarea:focus.valid ~ .helper-text[data-success],
+.form-claro .input-field textarea.materialize-textarea.invalid ~ .helper-text[data-error],
+.form-claro .input-field textarea.materialize-textarea:focus.invalid ~ .helper-text[data-error], .select-wrapper.valid .helper-text[data-success],
+.form-claro .input-field .select-wrapper.invalid ~ .helper-text[data-error] {
+  background-color: transparent;
+  color: transparent;
+}
+
+.form-claro .input-field input:not([type]).valid ~ .helper-text:after,
+.form-claro .input-field input:not([type]):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=text]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=text]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=password]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=password]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=email]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=email]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=url]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=url]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=time]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=time]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=date]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=date]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=tel]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=number]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=number]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field input[type=search]:not(.browser-default).valid ~ .helper-text:after,
+.form-claro .input-field input[type=search]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-claro .input-field textarea.materialize-.form-claro .input-field textarea.valid ~ .helper-text:after,
+.form-claro .input-field textarea.materialize-.form-claro .input-field textarea:focus.valid ~ .helper-text:after, .select-wrapper.valid ~ .helper-text:after {
+  background-color: transparent;
+  color: #14e062;
+}
+
+.form-claro .input-field input:not([type]).invalid ~ .helper-text:after,
+.form-claro .input-field input:not([type]):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=text]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=text]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=password]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=password]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=email]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=email]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=url]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=url]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=time]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=time]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=date]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=date]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=tel]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=number]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=number]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field input[type=search]:not(.browser-default).invalid ~ .helper-text:after,
+.form-claro .input-field input[type=search]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-claro .input-field textarea.materialize-.form-claro .input-field textarea.invalid ~ .helper-text:after,
+.form-claro .input-field textarea.materialize-.form-claro .input-field textarea:focus.invalid ~ .helper-text:after, .select-wrapper.invalid ~ .helper-text:after {
+  background-color: transparent;
+  color: #ff9999;
+}
+
+.form-claro .input-field input[type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border: 2px solid #fff;
+}
+
+.form-claro .input-field input[type="checkbox"].filled-in:checked + span:not(.lever):before {
+  border-right: 2px solid #0d47a1;
+  border-bottom: 2px solid #0d47a1;
+}
+
+.form-claro .input-field input[type="checkbox"].filled-in:checked + span:not(.lever):after {
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.form-claro .character-counter {
+  color: #fff;
+}
+
+.form-claro .input-field p label span {
+  line-height: normal;
+}
+
+.form-claro .input-field .prefix.active {
+  color: #eee;
+}
+
+.form-claro .input-field ul.dropdown-content.select-dropdown li span {
+  color: #000;
+}
+
+/* Estilização para deixar campos do formulário escuro */
+.form-escuro .input-field input:not([type]),
+.form-escuro .input-field input[type=text]:not(.browser-default),
+.form-escuro .input-field input[type=password]:not(.browser-default),
+.form-escuro .input-field input[type=email]:not(.browser-default),
+.form-escuro .input-field input[type=url]:not(.browser-default),
+.form-escuro .input-field input[type=time]:not(.browser-default),
+.form-escuro .input-field input[type=date]:not(.browser-default),
+.form-escuro .input-field input[type=datetime]:not(.browser-default),
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default),
+.form-escuro .input-field input[type=tel]:not(.browser-default),
+.form-escuro .input-field input[type=number]:not(.browser-default),
+.form-escuro .input-field input[type=search]:not(.browser-default),
+.form-escuro .input-field textarea.materialize-textarea {
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+}
+
+.form-escuro .input-field input:not([type]):focus:not([readonly]),
+.form-escuro .input-field input[type=text]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=password]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=email]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=url]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=time]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=date]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=number]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field input[type=search]:not(.browser-default):focus:not([readonly]),
+.form-escuro .input-field textarea.materialize-textarea:focus:not([readonly]) {
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  -webkit-box-shadow: 0 1px 0 0 #000;
+         box-shadow: 0 1px 0 0 #000;
+}
+
+.form-escuro .input-field input:not([type]):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field textarea.materialize-textarea:focus:not([readonly]) + label {
+  background-color: transparent;
+  color: #000;
+}
+
+.form-escuro .input-field .helper-text,
+.form-escuro .input-field label,
+.form-escuro .input-field input:not([type]):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+.form-escuro .input-field textarea.materialize-textarea:focus:not([readonly]) + label {
+  background-color: transparent;
+  color: #000;
+}
+
+.form-escuro .input-field input:not([type]):focus.valid ~ label,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.valid ~ label,
+.form-escuro .input-field textarea.materialize-textarea:focus.valid ~ label {
+  background-color: transparent;
+  color: #05a241;
+}
+
+.form-escuro .input-field input:not([type]):focus.invalid ~ label,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.invalid ~ label,
+.form-escuro .input-field textarea.materialize-textarea:focus.invalid ~ label {
+  background-color: transparent;
+  color: #c41212;
+}
+
+.form-escuro .input-field input.valid:not([type]), input.valid:not([type]):focus,
+.form-escuro .input-field input.valid[type=text]:not(.browser-default),
+.form-escuro .input-field input.valid[type=text]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=password]:not(.browser-default),
+.form-escuro .input-field input.valid[type=password]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=email]:not(.browser-default),
+.form-escuro .input-field input.valid[type=email]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=url]:not(.browser-default),
+.form-escuro .input-field input.valid[type=url]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=time]:not(.browser-default),
+.form-escuro .input-field input.valid[type=time]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=date]:not(.browser-default),
+.form-escuro .input-field input.valid[type=date]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=datetime]:not(.browser-default),
+.form-escuro .input-field input.valid[type=datetime]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=datetime-local]:not(.browser-default),
+.form-escuro .input-field input.valid[type=datetime-local]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=tel]:not(.browser-default),
+.form-escuro .input-field input.valid[type=tel]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=number]:not(.browser-default),
+.form-escuro .input-field input.valid[type=number]:not(.browser-default):focus,
+.form-escuro .input-field input.valid[type=search]:not(.browser-default),
+.form-escuro .input-field input.valid[type=search]:not(.browser-default):focus,
+.form-escuro .input-field textarea.materialize-textarea.valid,
+.form-escuro .input-field textarea.materialize-textarea.valid:focus, .select-wrapper.valid > input.select-dropdown {
+  background-color: transparent;
+  border-bottom: 1px solid #05a241;
+  -webkit-box-shadow: 0 1px 0 0 #05a241;
+          box-shadow: 0 1px 0 0 #05a241;
+}
+
+.form-escuro .input-field input.invalid:not([type]), input.invalid:not([type]):focus,
+.form-escuro .input-field input.invalid[type=text]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=text]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=password]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=password]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=email]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=email]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=url]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=url]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=time]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=time]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=date]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=date]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=datetime]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=datetime]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=datetime-local]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=datetime-local]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=tel]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=tel]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=number]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=number]:not(.browser-default):focus,
+.form-escuro .input-field input.invalid[type=search]:not(.browser-default),
+.form-escuro .input-field input.invalid[type=search]:not(.browser-default):focus,
+.form-escuro .input-field textarea.materialize-textarea.invalid,
+.form-escuro .input-field textarea.materialize-textarea.invalid:focus, .select-wrapper.invalid > input.select-dropdown,
+.form-escuro .input-field .select-wrapper.invalid > input.select-dropdown:focus {
+  background-color: transparent;
+  border-bottom: 1px solid #c41212;
+  -webkit-box-shadow: 0 1px 0 0 #c41212;
+          box-shadow: 0 1px 0 0 #c41212;
+}
+
+.form-escuro .input-field input:not([type]).valid ~ .helper-text[data-success],
+.form-escuro .input-field input:not([type]):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input:not([type]).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input:not([type]):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=text]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=text]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=password]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=password]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=email]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=email]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=url]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=url]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=time]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=time]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=date]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=date]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=datetime]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=datetime]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=tel]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=tel]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=number]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=number]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=search]:not(.browser-default).valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field input[type=search]:not(.browser-default).invalid ~ .helper-text[data-error],
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.invalid ~ .helper-text[data-error],
+.form-escuro .input-field textarea.materialize-textarea.valid ~ .helper-text[data-success],
+.form-escuro .input-field textarea.materialize-textarea:focus.valid ~ .helper-text[data-success],
+.form-escuro .input-field textarea.materialize-textarea.invalid ~ .helper-text[data-error],
+.form-escuro .input-field textarea.materialize-textarea:focus.invalid ~ .helper-text[data-error], .select-wrapper.valid .helper-text[data-success],
+.form-escuro .input-field .select-wrapper.invalid ~ .helper-text[data-error] {
+  background-color: transparent;
+  color: transparent;
+}
+
+.form-escuro .input-field input:not([type]).valid ~ .helper-text:after,
+.form-escuro .input-field input:not([type]):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=text]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=password]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=email]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=url]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=time]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=date]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=tel]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=number]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field input[type=search]:not(.browser-default).valid ~ .helper-text:after,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.valid ~ .helper-text:after,
+.form-escuro .input-field textarea.materialize-.form-escuro .input-field textarea.valid ~ .helper-text:after,
+.form-escuro .input-field textarea.materialize-.form-escuro .input-field textarea:focus.valid ~ .helper-text:after, .select-wrapper.valid ~ .helper-text:after {
+  background-color: transparent;
+  color: #05a241;
+}
+
+.form-escuro .input-field input:not([type]).invalid ~ .helper-text:after,
+.form-escuro .input-field input:not([type]):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=text]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=text]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=password]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=password]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=email]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=email]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=url]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=url]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=time]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=time]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=date]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=date]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=datetime-local]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=tel]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=tel]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=number]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=number]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=search]:not(.browser-default).invalid ~ .helper-text:after,
+.form-escuro .input-field input[type=search]:not(.browser-default):focus.invalid ~ .helper-text:after,
+.form-escuro .input-field textarea.materialize-.form-escuro .input-field textarea.invalid ~ .helper-text:after,
+.form-escuro .input-field textarea.materialize-.form-escuro .input-field textarea:focus.invalid ~ .helper-text:after, .select-wrapper.invalid ~ .helper-text:after {
+  background-color: transparent;
+  color: #c41212;
+}
+
+.form-escuro .input-field input[type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border: 2px solid #0d47a1;
+}
+
+.form-escuro .input-field input[type="checkbox"].filled-in:checked + span:not(.lever):before {
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.form-escuro .input-field input[type="checkbox"].filled-in:checked + span:not(.lever):after {
+  border: 2px solid #0d47a1;
+  background-color: #0d47a1;
+}
+
+.form-escuro .character-counter {
+  color: #000;
+}
+
+.form-escuro .input-field p label span {
+  line-height: normal;
+}
+
+.form-escuro .input-field .prefix.active {
+  color: #757575;
+}
+
+.form-escuro .input-field ul.dropdown-content.select-dropdown li span {
+  color: #000;
+}
+
+/* Configurações para deixar cabeçalho fixo */
+.modal.modal-fixed-header {
+  padding: 0;
+  height: 70%;
+}
+
+.modal.modal-fixed-header .modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+.modal.modal-fixed-header .modal-content {
+  position: absolute;
+  height: calc(100% - 56px);
+  max-height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.modal .modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 2px 2px;
+  background-color: #fafafa;
+  padding: 1rem;
+  height: 56px;
+  width: 100%;
+}
+
+.modal.modal-fixed-header .modal-header .modal-title {
+  float: left;
+  margin: 0 !important;
+  font-weight: 500;
+  color: #000;
+}
+
+.modal.modal-fixed-header .modal-header .modal-button-close i {
+  float: right;
+  font-weight: 500;
+  color: #000;
+  line-height: normal;
+}
+
+/**
+ * Alterações em códigos de terceiros
+ */
+/* Deixar ícone escuro em fundo claro. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Deixar ícone claro em fundo escuro */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/**
+ * Códigos para padronização de layout
+ */
+/* Estilização da barra de navegação */
+.sidenav {
+  width: 80%;
+}
+
+@media (max-width: 500px) {
+  nav .brand-logo {
+    font-size: 1.5rem;
+  }
+
+  img.logo {
+    margin: 6px auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  nav .brand-logo {
+    font-size: 1.8rem;
+  }
+
+  img.logo {
+    margin: 9px auto;
+  }
+}
+
+@media (max-width: 992px) {
+  nav .brand-logo {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+/* Manter rodapé estático no final da página, mesmo com pouco conteúdo */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/**
+ * códigos para padronização de componentes
+ */
+.titulo-imovel {
+  margin-top: 0.8rem;
+}
+
+.lista-imovel {
+  margin: 15px;
+}
+
+.corpo-lista .row .col {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0rem;
+  min-height: 1px;
+}
+
+.infos {
+  margin: 2px;
+  float: inherit;
+}
+
+.corpo-lista .btn-small {
+  height: 30px;
+  line-height: 30px;
+}
+
+.corpo-lista i.left {
+  margin-right: 5px;
+}
+
+.carousel .carousel-item > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.carousel {
+  height: 300px !important;
+}
+
+.carousel.carousel-slider .carousel-item {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/**
+ * Códigos para elementos de páginas específicas
+ */
+ /* Página não encontrei */
+ .nao-encontrei-fundo {
+   background: url("https://imoveissaojose.com/images/nao-encontrei-fundo.jpg") no-repeat top center!important;
+   background-size: cover !important;
+   min-height: 100vh;
+ }
+
+@media (max-width: 767px) {
+  .nao-encontrei-fundo .hidden-mobile {
+    visibility: hidden;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Página imobiliárias */
+.imobiliaria {
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 5px;
+}
+
+
+
 .principal-enter {
     opacity: 0.01;
 }

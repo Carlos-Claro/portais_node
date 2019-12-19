@@ -3,11 +3,55 @@ import LinkWrapper from '../../uteis/LinkWrapper';
 import PreLoader from '../PreLoader/PreLoader'
 import Img from 'react-image';
 import M from 'materialize-css';
+import MenuCompleto, { SubMenu, MenuItem } from 'rc-menu';
+import 'rc-menu/assets/index.css';
 
+class MenuDropdown extends Component {
+
+  state = {
+      openKeys: [],
+    };
+
+    onClick(info) {
+      console.log('click ', info);
+    }
+
+    onOpenChange = (openKeys) => {
+      console.log('onOpenChange', openKeys);
+      this.setState({
+        openKeys,
+      });
+    }
+
+    render(){
+      let itens = this.props.menu.map((item) => {
+        console.log(item.link);
+          return (
+            <MenuCompleto
+              onClick={this.onClick}
+              mode="inline"
+              onOpenChange={this.onOpenChange}
+              openKeys={this.state.openKeys}>
+              <SubMenu key={item.link} to={`imoveis-${item.link}-${this.props.cidadeLink}`} className="black-text text-darken-2" title={`${item.titulo} Imóveis em ${this.props.cidadeNome}`}> <i className="material-icons right black-text text-darken-2"></i>
+              {
+              item.itens.map((sub) => {
+                  console.log(sub);
+                  return(
+                    <MenuItem key={item.link} className="black-text text-darken-2" title={`${item.titulo} ${sub.descricao} em ${this.props.cidadeNome}`}>
+                        <LinkWrapper to={`${item.link}-${sub.link}-${this.props.cidadeLink}`}>{sub.descricao}</LinkWrapper>
+                    </MenuItem>
+                    )
+              })
+              }
+              </SubMenu>
+            </MenuCompleto>
+          )
+      })
+      return itens;
+    }
+}
 
 class MenuItens extends Component {
-
-
 
   render(){
 
@@ -21,7 +65,6 @@ class MenuItens extends Component {
                 </li>
                 {
                 item.itens.map((sub) => {
-                  console.log(sub);
                   return(
                     <li key={sub.link}>
                       <LinkWrapper key={sub.link} to={`${item.link}-${sub.link}-${this.props.cidadeLink}`} className="black-text text-darken-2" title={`${item.titulo} ${sub.descricao} em ${this.props.cidadeNome}`}>
@@ -35,7 +78,6 @@ class MenuItens extends Component {
             </li>
                 )
               })
-              console.log(itens);
     return itens;
   }
 }
@@ -63,7 +105,9 @@ componentDidUpdate(nextProps,nextState){
                     <i className="material-icons blue-text text-darken-4">menu</i>
                   </LinkWrapper>
                   <ul key="menu" id="nav-mobile" className="right hide-on-med-and-down f-bold">
-                    <MenuItens menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={`${this.props.cidadeLink}-menu`} cidadeNome={this.props.cidadeNome} mobile={false}/>
+                    <li>
+                      <MenuDropdown className="menu-desktop" menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={`${this.props.cidadeLink}-menu`} cidadeNome={this.props.cidadeNome} mobile={false}/>
+                    </li>
                     <li>
                       <LinkWrapper to="#" className="black-text text-darken-2">Sobre</LinkWrapper>
                     </li>
@@ -71,10 +115,9 @@ componentDidUpdate(nextProps,nextState){
                 </div>
               </nav>
             </div>
-            <ul id="mobile" className="sidenav" >
-              <MenuItens menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={`${this.props.cidadeLink}-menu`} cidadeNome={this.props.cidadeNome} mobile={true}/>
-
-            </ul>
+            <div id="mobile" className="sidenav" >
+                <MenuDropdown menu={this.props.menu} cidadeLink={this.props.cidadeLink} key={`${this.props.cidadeLink}-menu`} cidadeNome={this.props.cidadeNome} mobile={true}/>
+            </div>
           </header>
         </Fragment>
       );

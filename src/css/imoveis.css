@@ -9,3 +9,9 @@
 }
 .texto-descricao {
 }
+.rc-menu-submenu-selected {
+    background-color: #ffffff;
+}
+.rc-menu-item-active, .rc-menu-submenu-active > .rc-menu-submenu-tittle {
+  background-color: #ffffff!important;
+}

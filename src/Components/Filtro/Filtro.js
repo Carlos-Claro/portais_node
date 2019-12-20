@@ -1,5 +1,6 @@
 import React, {Component,Fragment} from 'react';
 import M from 'materialize-css';
+import LinkWrapper from '../../uteis/LinkWrapper';
 import 'materialize-css/dist/css/materialize.min.css';
 import Pubsub from 'pubsub-js';
 
@@ -123,6 +124,7 @@ export default class Filtro extends Component {
               </form>
             </div>
           </section>
+          <ButtonFiltro/>
       </Fragment>
 
     )
@@ -230,6 +232,26 @@ class FiltroSelect extends Component {
         </select>
         <label>Selecione o {this.props.titulo} de imóvel</label>
       </div>
+    )
+  }
+}
+
+class ButtonFiltro extends Component {
+
+  render(){
+    return (
+      <Fragment>
+      <div>
+        <LinkWrapper to="#" data-target="filtro" className="sidenav-trigger active">
+        <div class="fixed-action-btn btn-floating btn-large blue">
+        <i class="large material-icons">search</i>
+        </div>
+        </LinkWrapper>
+        <div id="filtro" className="sidenav">
+        <p>teste</p>
+        </div>
+      </div>
+      </Fragment>
     )
   }
 }

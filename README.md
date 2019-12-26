@@ -5,4 +5,8 @@
 # Consulta RESTAPI de imóveis
 ##################
 
-# 
+### TODO
+
+#Breadscrumb com imoveis > pesquisa > cidade linkados
+#Paginação auto-rolagem
+#

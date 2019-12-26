@@ -7,12 +7,11 @@ import NotFound from './Pages/NotFound/NotFound';
 import * as serviceWorker from './uteis/serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={Index}/>
+      <Route path="/" exact={true} component={Index}/>
+      <Route path="/:pesquisa" exact={true} component={Index}/>
       <Route path="/imovel/:titulo/:id" exact={true} component={Imovel}/>
       <Route component={NotFound} />
     </Switch>

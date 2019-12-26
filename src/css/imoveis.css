@@ -1,0 +1,31 @@
+.aberto {
+  display: show;
+}
+.fechado {
+  display: none;
+}
+.text-bold {
+  font-weight: 500;
+}
+.texto-descricao {
+}
+.rc-menu-submenu-selected {
+    background-color: #ffffff;
+}
+.rc-menu-item-active, .rc-menu-submenu-active > .rc-menu-submenu-title {
+    background-color: #fff;
+}
+.rc-menu {
+    outline: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    list-style: none;
+    border: 0px solid #d9d9d9;
+    box-shadow: 0 0 4px #d9d9d9;
+    border-radius: 3px;
+    color: #666;
+}
+.rc-menu-vertical > .rc-menu-item, .rc-menu-vertical-left > .rc-menu-item, .rc-menu-vertical-right > .rc-menu-item, .rc-menu-inline > .rc-menu-item, .rc-menu-vertical > .rc-menu-submenu > .rc-menu-submenu-title, .rc-menu-vertical-left > .rc-menu-submenu > .rc-menu-submenu-title, .rc-menu-vertical-right > .rc-menu-submenu > .rc-menu-submenu-title, .rc-menu-inline > .rc-menu-submenu > .rc-menu-submenu-title {
+    padding: 0 8px 0 24px;
+}

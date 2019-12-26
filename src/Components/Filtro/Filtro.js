@@ -1,8 +1,10 @@
 import React, {Component,Fragment} from 'react';
-import M from 'materialize-css';
-import LinkWrapper from '../../uteis/LinkWrapper';
 import 'materialize-css/dist/css/materialize.min.css';
 import Pubsub from 'pubsub-js';
+
+import Checkbox from '../../uteis/input/Checkbox';
+import Button from '../../uteis/input/Button';
+import Select from '../../uteis/input/Select';
 
 export default class Filtro extends Component {
 
@@ -114,144 +116,19 @@ export default class Filtro extends Component {
           <div className="row">
             <form onSubmit={this.pesquisa.bind(this)} className="col s12">
               <div className="row">
-                <FiltroSelect name="coluna" titulo="Ordenação" valores={[{link:'ordem',nome:'Ordem'},{link:'preco-max',nome:'Preço Max'},{link:'preco-min',nome:'Preço Min'}]} selecionados={this.state.coluna}/>
-                <FiltroSelect name="tipos" titulo="Tipos" valores={this.props.tipos} selecionados={this.state.tipos} multiple/>
-                <FiltroSelect name="bairros" titulo="Bairros" valores={this.props.bairros} selecionados={this.state.bairros} multiple/>
-                <FiltroCheckbox name="quartos" titulo="Quartos" valores={[1,2,3,4]} selecionados={this.state.quartos} />
-                <FiltroCheckbox name="vagas" titulo="Vagas de garagem" valores={[1,2,3,4]} selecionados={this.state.vagas} />
+                <Select name="coluna" titulo="Ordenação" valores={[{link:'ordem',nome:'Ordem'},{link:'preco-max',nome:'Preço Max'},{link:'preco-min',nome:'Preço Min'}]} selecionados={this.state.coluna}/>
+                <Select name="tipos" titulo="Tipos" valores={this.props.tipos} selecionados={this.state.tipos} multiple/>
+                <Select name="bairros" titulo="Bairros" valores={this.props.bairros} selecionados={this.state.bairros} multiple/>
+                <Checkbox name="quartos" titulo="Quartos" valores={[1,2,3,4]} selecionados={this.state.quartos} />
+                <Checkbox name="vagas" titulo="Vagas de garagem" valores={[1,2,3,4]} selecionados={this.state.vagas} />
                 <input type="submit" name="envio" value="Pesquisar" className="btn" />
               </div>
               </form>
             </div>
           </section>
-          <ButtonFiltro/>
+          <Button/>
       </Fragment>
 
-    )
-  }
-}
-
-class FiltroCheckbox extends Component {
-
-  constructor(){
-    super();
-    this.campoInput = []
-  }
-
-  filtro(e){
-    e.preventDefault();
-    Pubsub.publish('atualiza-filtro',{filtroTipo:this.campoInput[e.target.value].name, selecionado:this.campoInput[e.target.value].value});
-  }
-
-  shouldComponentUpdate(nextProps,nextState){
-    if( JSON.stringify(this.props.selecionados) !== JSON.stringify(nextProps.selecionados) ) {
-      return true;
-    }
-    return false;
-  }
-
-  render(){
-    const options = this.props.valores.map((item) => {
-      let s = [];
-      if (this.props.selecionados.length > 0){
-        s = this.props.selecionados.filter(i => item === i);
-      }
-      var opt = "";
-      const key = `${this.props.name}-${item}`;
-      if (s.length > 0){
-        opt = <p className="col s3" key={key}><label htmlFor={key}>
-        <input
-          id={key}
-          ref={input => this.campoInput[item] = input}
-          name={this.props.name}
-          onClick={this.filtro.bind(this)}
-          type="checkbox"
-          value={item}
-          checked="checked" />
-        <span>{item}</span></label></p>;
-      }else{
-        opt = <p className="col s3" key={key}><label htmlFor={key}>
-        <input
-          id={key}
-          ref={input => this.campoInput[item] = input}
-          name={this.props.name}
-          onClick={this.filtro.bind(this)}
-          type="checkbox"
-          value={item} />
-        <span>{item}</span></label></p>;
-      }
-      return opt;
-    })
-    return(
-      <div className="input-field col s12">
-        <p>Selecione {this.props.titulo}</p>
-        {options}
-      </div>
-    )
-  }
-}
-
-class FiltroSelect extends Component {
-
-  constructor(){
-    super();
-    this.campo = false;
-  }
-
-  filtro(e){
-    e.preventDefault();
-    let selecionados = this.campo.getSelectedValues()
-    if ( this.props.multiple === undefined ){
-      selecionados = this.selectInput.value;
-    }
-    Pubsub.publish('atualiza-filtro',{filtroTipo:this.props.name,selecionados})
-  }
-
-  componentDidUpdate(prevProps,prevState){
-    this.campo = M.FormSelect.init(this.selectInput);
-  }
-
-  render(){
-    const options = this.props.valores.map((item) => {
-      let opt = <option key={`${item.link}-${this.props.name}`} value={item.link} >{item.nome}</option>;
-      return opt;
-    })
-    return(
-      <div key={`${this.props.name}Div`} className="input-field col s12">
-        <select
-          key={`${this.props.name}Select`}
-          name={this.props.name}
-          type="select"
-          onChange={this.filtro.bind(this)}
-          value={this.props.selecionados}
-          ref={input => this.selectInput = input}
-          {...this.props}
-          >
-          <option value="" key={`${this.props.name}-sem-valor`} >Escolha seus {this.props.titulo}</option>
-          {options}
-        </select>
-        <label>Selecione o {this.props.titulo} de imóvel</label>
-      </div>
-    )
-  }
-}
-
-class ButtonFiltro extends Component {
-
-  render(){
-    return (
-      <Fragment>
-      <div>
-        <LinkWrapper to="#" data-target="filtro" className="sidenav-trigger active">
-        <div class="fixed-action-btn btn-floating btn-large blue">
-        <i class="large material-icons">search</i>
-        </div>
-        </LinkWrapper>
-        <div id="filtro" className="sidenav">
-        <p>teste</p>
-        </div>
-      </div>
-      </Fragment>
     )
   }
 }

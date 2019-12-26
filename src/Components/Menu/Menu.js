@@ -25,7 +25,6 @@ class MenuDropdown extends Component {
 
     render(){
       let itens = this.props.menu.map((item) => {
-        console.log(item.link);
           return (
             <MenuCompleto
               onClick={this.onClick}
@@ -35,10 +34,9 @@ class MenuDropdown extends Component {
               <SubMenu key={item.link} to={`imoveis-${item.link}-${this.props.cidadeLink}`} className="black-text text-darken-2" title={`${item.titulo} Imóveis em ${this.props.cidadeNome}`}> <i className="material-icons right black-text text-darken-2"></i>
               {
               item.itens.map((sub) => {
-                  console.log(sub);
                   return(
                     <MenuItem key={item.link} className="black-text text-darken-2" title={`${item.titulo} ${sub.descricao} em ${this.props.cidadeNome}`}>
-                        <LinkWrapper to={`${item.link}-${sub.link}-${this.props.cidadeLink}`}>{sub.descricao}</LinkWrapper>
+                        <LinkWrapper to={`${sub.link}-${item.link}-${this.props.cidadeLink}`}>{sub.descricao}</LinkWrapper>
                     </MenuItem>
                     )
               })

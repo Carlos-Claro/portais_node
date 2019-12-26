@@ -1,14 +1,17 @@
 import React, {Component,Fragment} from 'react';
 
+/*https://www.npmjs.com/package/react-responsive-carousel*/
 import { Carousel } from 'react-responsive-carousel';
 
 import Img from 'react-image';
 import PreLoader from '../PreLoader/PreLoader';
-
+import nl2br from 'react-nl2br';
 
 import 'materialize-css/dist/css/materialize.min.css';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import '../../css/imovel.css';
 
 import LinkWrapper from '../../uteis/LinkWrapper';
 
@@ -61,18 +64,17 @@ export default class ImovelItem extends Component {
         <h1>{`${this.props._id} - ${this.props.nome}`}</h1>
         <div className="row" >
           <div className="col s12 x6">
-            /*https://www.npmjs.com/package/react-responsive-carousel*/
             <Carousel showArrows={true} >
               {this.state.images}
             </Carousel>
           </div>
           <div className="col s12 x6">
-            <Formulario idImovel={this.props.id} idEmpresa={this.props.id_empresa}/>
+            <Formulario {...this.props}/>
           </div>
         </div>
         <div className="row">
           <div className="col s12 x6">
-            <p>{this.props.descricao}</p>
+            <p>{nl2br(this.props.descricao)}</p>
           </div>
           <div className="col s12 x6">
           </div>

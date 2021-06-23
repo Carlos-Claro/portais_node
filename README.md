@@ -5,6 +5,11 @@
 # Consulta RESTAPI de imóveis
 ##################
 
+@node-version 12.12.0
+@react-version 16.11.0
+
+
+
 ### TODO
 
 #Breadscrumb com imoveis > pesquisa > cidade linkados

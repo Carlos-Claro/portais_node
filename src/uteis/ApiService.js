@@ -5,7 +5,7 @@ endereco: "http://localhost:5000/",
 endereco: "http://imoveis.powempresas.com/",
 */
 const ApiService = {
-  endereco: "http://imoveis.powempresas.com/",
+  endereco: "http://localhost:5000/",
   ListaImoveis: filtro => {
 
     const requestInfo = {
